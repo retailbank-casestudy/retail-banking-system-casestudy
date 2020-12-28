@@ -1,0 +1,17 @@
+.metadata
+target/
+bin/
+*/bin
+*/target
+output
+.DS_Store
+.classpath
+.project
+.settings
+.metadata
+.vscode
+*.war
+*.js
+*.js.map
+PhantomJS_*
+Servers
