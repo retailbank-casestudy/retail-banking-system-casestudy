@@ -7,10 +7,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 
-//let routes : Routes = [
-  //{path : "", component: },
-  //{path : "", component: },
-//];
+let routes : Routes = [
+  {path : "homepage", component: HomepageComponent},
+  //{path : "accounts", component: },
+  //{path : "transactions", component: },
+  //{path : "creditscore", component: },
+  //{path : "rewards", component: }
+];
 
 @NgModule({
   declarations: [
@@ -19,9 +22,9 @@ import { HomepageComponent } from './homepage/homepage.component';
   ],
   imports: [
     BrowserModule,
-    //FormsModule,
-    //HttpClientModule,
-    //RouterModule.forRoot(routes)
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
