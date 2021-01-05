@@ -9,23 +9,25 @@ export class HomepageService {
 
   constructor(private _http: HttpClient) { }
 
-  fetchAccounts() : Observable<any>{
-    let uri = "https://jsonplaceholder.typicode.com/users";
+  userid : any = undefined;
+
+  fetchAccounts(userid : any) : Observable<any>{
+    let uri = "";
     return this._http.get(uri);
   }
 
-  fetchTransactions() : Observable<any>{
-    let uri = "https://jsonplaceholder.typicode.com/users";
+  fetchTransactions(userid : any) : Observable<any>{
+    let uri = "";
     return this._http.get(uri);
   }
 
-  fetchCredits() : Observable<any>{
-    let uri = "https://jsonplaceholder.typicode.com/users";
+  fetchCredits(userid : any) : Observable<any>{
+    let uri = "";
     return this._http.get(uri);
   }
 
-  fetchRewards() : Observable<any>{
-    let uri = "https://jsonplaceholder.typicode.com/users";
+  fetchRewards(userid : any) : Observable<any>{
+    let uri = "";
     return this._http.get(uri);
   }
 }
