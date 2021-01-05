@@ -20,8 +20,8 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
     this._service.fetchAccounts(this.userid).subscribe(response => this.accounts = response);
     this._service.fetchTransactions(this.userid).subscribe(response => this.transactions = response);
-    //this._service.fetchCredits(this.userid).subscribe(response => this.credits = response);
-    //this._service.fetchRewards(this.userid).subscribe(response => this.rewards = response);
+    this._service.fetchCredits(this.userid).subscribe(response => this.credits = response);
+    this._service.fetchRewards(this.userid).subscribe(response => this.rewards = response);
   }
 
 }

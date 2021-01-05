@@ -21,10 +21,37 @@ export class RestapiService {
    return this.id;
 }
 
-  getUsers() {
+//   getUsers() {
     
-    
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.user+ ':' + this.pass) });
-   return  this.http.get("http://localhost:8080/homee/"+this.id,{headers,responseType: 'text' as 'json'});
-  }
+//     
+//     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.user+ ':' + this.pass) });
+//    return  this.http.get("http://localhost:8919/home/"+this.id,{headers,responseType: 'text' as 'json'});
+//   }
+
+fetchUsername(){
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.user+ ':' + this.pass) });
+    return  this.http.get("http://localhost:8919/home/"+this.id,{headers,responseType: 'text' as 'json'});
 }
+
+fetchAccounts(){
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.user+ ':' + this.pass) });
+    return  this.http.get("http://localhost:8919/accounts/"+this.id,{headers,responseType: 'text' as 'json'});
+}
+
+fetchTransactions(){
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.user+ ':' + this.pass) });
+    return  this.http.get("http://localhost:8919/transactions/"+this.id,{headers,responseType: 'text' as 'json'});
+}
+
+fetchCredits(){
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.user+ ':' + this.pass) });
+    return  this.http.get("http://localhost:8919/creditscore/"+this.id,{headers,responseType: 'text' as 'json'});
+}
+
+fetchRewards(){
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.user+ ':' + this.pass) });
+    return  this.http.get("http://localhost:8919/rewards/"+this.id,{headers,responseType: 'text' as 'json'});
+}
+}
+
+

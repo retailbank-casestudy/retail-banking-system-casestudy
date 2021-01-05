@@ -1,125 +1,125 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <a class="navbar-brand" routerLink = "homepage">Welcome {{username}} !</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link active" routerLink = "homepage">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="#">About Us</a>
-        <a class="nav-item nav-link" href="#">Contact Us</a>
-        <a class="btn btn-secondary" routerLink = "logout" >Logout</a>
-      </div>
+  <a class="navbar-brand" routerLink = "homepage">Welcome {{username}} !</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link active" routerLink = "homepage">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">About Us</a>
+      <a class="nav-item nav-link" href="#">Contact Us</a>
+      <a class="btn btn-secondary" routerLink = "logout" >Logout</a>
     </div>
-  </nav>
+  </div>
+</nav>
 <div class="body">
-  <br/><br/>
-  <div class="container">
-    <div class="row">
-      <div class="col"></div>
-      <div class="col">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://static.thenounproject.com/png/1436353-200.png" alt="Accounts" style="width:300px;height:300px;">
-              <span class="carousel-caption">ACCOUNTS</span>
-            </div>
-            <div class="flip-card-back">
-              <h1>Accounts</h1> 
-              <table class="table table-sm table-hover table-striped" style="font-size: 12px;">
-                <thead>
-                    <tr>
-                        <th>AccNo</th>
-                        <th>Name</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <!--<tbody>
-                    <tr *ngFor = "let u of accounts">
-                        <td>{{u.id}}</td>
-                        <td>{{u.name}}</td>
-                        <td>{{u.username}}</td>
-                    </tr>
-                </tbody>-->
-              </table>
-              <a class="btn btn-secondary" routerLink = "accounts">View More</a>
-            </div>
+<br/><br/>
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://static.thenounproject.com/png/1436353-200.png" alt="Accounts" style="width:300px;height:300px;">
+            <span class="carousel-caption">ACCOUNTS</span>
+          </div>
+          <div class="flip-card-back">
+            <h1>Accounts</h1> 
+            <table class="table table-sm table-hover table-striped" style="font-size: 12px;">
+              <thead>
+                  <tr>
+                      <th>AccName</th>
+                      <th>AccType</th>
+                      <th>Balance</th>
+                  </tr>
+              </thead>
+              <!--<tbody>
+                  <tr *ngFor = "let a of accounts">
+                      <td>{{a.accountNickName}}</td>
+                      <td>{{a.accountType}}</td>
+                      <td>{{a.accountBalance}}</td>
+                  </tr>
+              </tbody>-->
+            </table>
+            <a class="btn btn-secondary" routerLink = "accounts">View More</a>
           </div>
         </div>
       </div>
-      <div class="col"></div>
-      <div class="col">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://www.fnbabsecon.com/wp-content/uploads/2016/06/loan-icon.png" alt="Transactions" style="width:300px;height:300px;">
-              <span class="carousel-caption">TRANSACTIONS</span>
-            </div>
-            <div class="flip-card-back">
-              <h1>Transactions</h1> 
-              <table class="table table-sm table-hover table-striped" style="font-size: 12px;">
-                <thead>
-                    <tr>
-                        <th>AccName</th>
-                        <th>TransId</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <!--<tbody>
-                    <tr *ngFor = "let u of transactions">
-                        <td>{{u.id}}</td>
-                        <td>{{u.name}}</td>
-                        <td>{{u.username}}</td>
-                    </tr>
-                </tbody>-->
-              </table>
-              <a class="btn btn-secondary" routerLink = "transactions">View More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col"></div>
     </div>
-    <br/><br/>  
-    <div class="row">
-      <div class="col"></div>
-      <div class="col">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://static.thenounproject.com/png/2218877-200.png" alt="Credit Score" style="width:300px;height:300px;">
-              <span class="carousel-caption">CREDIT SCORE</span>
-            </div>
-            <div class="flip-card-back">
-              <h1>Credit Score</h1> 
-              <div class="box">
-                <div>Credit Score : {{credits}}</div>
-              </div>
-              <a class="btn btn-secondary" routerLink = "creditscore">View More</a>
-            </div>
+    <div class="col"></div>
+    <div class="col">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://www.fnbabsecon.com/wp-content/uploads/2016/06/loan-icon.png" alt="Transactions" style="width:300px;height:300px;">
+            <span class="carousel-caption">TRANSACTIONS</span>
+          </div>
+          <div class="flip-card-back">
+            <h1>Transactions</h1> 
+            <table class="table table-sm table-hover table-striped" style="font-size: 12px;">
+              <thead>
+                  <tr>
+                      <th>TransId</th>
+                      <th>TransType</th>
+                      <th>TransAmount</th>
+                  </tr>
+              </thead>
+              <!--<tbody>
+                  <tr *ngFor = "let t of transactions">
+                      <td>{{t.transactionId}}</td>
+                      <td>{{t.transactionType}}</td>
+                      <td>{{t.transactionAmount}}</td>
+                  </tr>
+              </tbody>-->
+            </table>
+            <a class="btn btn-secondary" routerLink = "transactions">View More</a>
           </div>
         </div>
       </div>
-      <div class="col"></div>
-      <div class="col">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://www.flaticon.com/svg/static/icons/svg/1426/1426708.svg" alt="Rewards" style="width:300px;height:300px;">
-              <span class="carousel-caption">REWARDS</span>
-            </div>
-            <div class="flip-card-back">
-              <h1>Rewards</h1> 
-              <div class="box">
-                <div>Total Rewards : {{rewards}}</div>
-              </div>
-              <a class="btn btn-secondary" routerLink = "rewards">View More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col"></div>
     </div>
+    <div class="col"></div>
   </div>
-  <br/><br/>
+  <br/><br/>  
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://static.thenounproject.com/png/2218877-200.png" alt="Credit Score" style="width:300px;height:300px;">
+            <span class="carousel-caption">CREDIT SCORE</span>
+          </div>
+          <div class="flip-card-back">
+            <h1>Credit Score</h1> 
+            <div class="box">
+              <div>Credit Score : {{credits}}</div>
+            </div>
+            <a class="btn btn-secondary" routerLink = "creditscore">View More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col"></div>
+    <div class="col">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="https://www.flaticon.com/svg/static/icons/svg/1426/1426708.svg" alt="Rewards" style="width:300px;height:300px;">
+            <span class="carousel-caption">REWARDS</span>
+          </div>
+          <div class="flip-card-back">
+            <h1>Rewards</h1> 
+            <div class="box">
+              <div>Total Rewards : {{rewards}}</div>
+            </div>
+            <a class="btn btn-secondary" routerLink = "rewards">View More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col"></div>
   </div>
+</div>
+<br/><br/>
+</div>
