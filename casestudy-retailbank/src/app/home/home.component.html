@@ -8,7 +8,9 @@
         <a class="nav-item nav-link active" routerLink = "/home/{{id}}">Home <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="#">About Us</a>
         <a class="nav-item nav-link" href="#">Contact Us</a>
-        <a class="btn btn-secondary" style="color: white;" (click) = "logout()" >Logout</a>
+        <div>
+        <a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" (click) = "logout()" >Logout</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -42,7 +44,7 @@
                     </tr>
                 </tbody>
               </table>
-              <a class="btn btn-secondary" routerLink = "/accounts/{{id}}">View More</a>
+              <a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" routerLink = "/accounts/{{id}}">View More</a>
             </div>
           </div>
         </div>
@@ -62,7 +64,7 @@
                     <tr>
                         <th>TransId</th>
                         <th>TransType</th>
-                        <th>TransAmount</th>
+                        <th>TransAmt</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -73,7 +75,7 @@
                     </tr>
                 </tbody>
               </table>
-              <a class="btn btn-secondary" routerLink = "/transactions/{{id}}">View More</a>
+              <a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" routerLink = "/transactions/{{id}}">View More</a>
             </div>
           </div>
         </div>
@@ -95,7 +97,7 @@
               <div class="box">
                 <div>Credit Score : {{credits}}</div>
               </div>
-              <a class="btn btn-secondary" routerLink = "/creditscore">View More</a>
+              <a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" routerLink = "/creditscore/{{id}}">View More</a>
             </div>
           </div>
         </div>
@@ -113,7 +115,7 @@
               <div class="box">
                 <div>Total Rewards : {{rewards}}</div>
               </div>
-              <a class="btn btn-secondary" routerLink = "/rewards">View More</a>
+              <a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" routerLink = "/rewards/{{id}}">View More</a>
             </div>
           </div>
         </div>
@@ -123,3 +125,155 @@
   </div>
   <br/><br/>
   </div>
+
+  <!--Footer-->
+  <div class="footer1">
+    <footer class="page-footer font-small unique-color-dark">
+
+      <div style="background-color: black;">
+        <div class="container">
+    
+          <!-- Grid row-->
+          <div class="row py-4 d-flex align-items-center">
+    
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+              <h6 class="mb-0">Get connected with us on social networks!</h6>
+            </div>
+            <!-- Grid column -->
+    
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-7 text-center text-md-right">
+    
+              <!-- Facebook -->
+              <a class="fb-ic">
+                <mdb-icon fab icon="facebook" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!-- Twitter -->
+              <a class="tw-ic">
+                <mdb-icon fab icon="twitter" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!-- Google +-->
+              <a class="gplus-ic">
+                <mdb-icon fab fab icon="google-plus" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!--Linkedin -->
+              <a class="li-ic">
+                <mdb-icon fab icon="linkedin" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!--Instagram-->
+              <a class="ins-ic">
+                <mdb-icon fab icon="instagram" class="white-text mr-4"></mdb-icon>
+              </a>
+    
+            </div>
+            <!-- Grid column -->
+    
+          </div>
+          <!-- Grid row-->
+    
+        </div>
+      </div>
+    
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left mt-5">
+    
+        <!-- Grid row -->
+        <div class="row mt-3">
+    
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+    
+            <!-- Content -->
+            <h6 class="text-uppercase font-weight-bold">CTS Retail Bank</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              The most trustworthy and the scure bank in US. Make everything digital.
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Services</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <a routerLink = "/accounts/{{id}}">Accounts</a>
+            </p>
+            <p>
+              <a routerLink = "/transactions/{{id}}">Transactions</a>
+            </p>
+            <p>
+              <a routerLink = "/creditscore/{{id}}">Credit Score</a>
+            </p>
+            <p>
+              <a routerLink = "/rewards/{{id}}">Rewards</a>
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <a href="#!">Your Account</a>
+            </p>
+            <p>
+              <a href="#!">Become an Affiliate</a>
+            </p>
+            <p>
+              <a href="#!">Shipping Rates</a>
+            </p>
+            <p>
+              <a href="#!">Help</a>
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <mdb-icon fas icon="home" class="mr-3"></mdb-icon> New York, NY 10012, US
+            </p>
+            <p>
+              <mdb-icon fas icon="envelope" class="mr-3"></mdb-icon> cts-retailbank@example.com
+            </p>
+            <p>
+              <mdb-icon fas icon="phone" class="mr-3"></mdb-icon> + 01 234 567 88
+            </p>
+            <p>
+              <mdb-icon fas icon="print" class="mr-3"></mdb-icon> + 01 234 567 88
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row -->
+    
+      </div>
+      <!-- Footer Links -->
+    
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="http://localhost:4200/">cts-retailbank.com</a>
+      </div>
+      <!-- Copyright -->
+    
+    </footer>
+    <!-- Footer -->
+    
+  </div>
+  

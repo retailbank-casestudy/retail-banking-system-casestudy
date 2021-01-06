@@ -1,42 +1,101 @@
-<div class="background-wrap">
-    <div class="background"></div>
-  </div>
- 
-  <form id="accesspanel" action="login" method="post" #validateform="ngForm">
-    <h1 id="litheader">Retail banking System </h1>
-    <div class="inset">
-      <div>
-      <p>
-        <input type="text" class="form-control" required
-         name="username" [(ngModel)]="username" id="email" placeholder="username" #name="ngModel">
-      </p>
-       <p [hidden]="name.valid || name.pristine" class="alert alert-danger"> Username is required</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link active" routerLink = "/home/{{userId}}">Home <span class="sr-only"></span></a>
+        <a class="nav-item nav-link" href="#">About Us</a>
+        <a class="nav-item nav-link" href="#">Contact Us</a>
+        <div>
+        <a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" routerLink = "/login" >Logout</a>
+        </div>
       </div>
-  
-      <div>
-      <p>
-        <input type="password" class ="form-control" required name="password" [(ngModel)]="password" id="password" placeholder="password" #pass="ngModel">
-      </p>
-      <p [hidden]="pass.valid || pass.pristine" class="alert alert-danger"> Password is required</p>
     </div>
+  </nav>
 
-    <div>
-      <p>
-      Remember Me: <input type="checkbox" name="remember-me" > 
-      </p>
-
-    </div>
+<div class = "row">
+    <div class="col-4">
+    <label for="accountType">Choose type of Account : </label>
+    <select  [(ngModel)] = "accSelected" (change)='typeOfAccountSelected()'>
+        <option *ngFor="let acc of accounts">{{acc}}</option>
+        
+    </select>
+</div>
+    <div class="col-4" id="topBar">
+    {{accSelected}} Account -
+</div>
+</div>
+<div class = "row">
+<div class="col-4">
+  <cdk-virtual-scroll-viewport itemSize="5" class="viewport">
       
-  </div>
-   
-    <p class="p-container">
-      <input type="submit" [disabled]="!validateform.form.valid"   name="Login" id="go" value="Login" (click)="doLogin()">
-    </p>
- 
-  </form>
+        <mat-card *cdkVirtualFor = "let ac of accountnames" (click)="onSelect(ac.accountNo)" (click)="handleClick(ac.accountNo)" >
+     
+            <mat-card-content>{{ac.accountNo}}<b>(Balance-{{ac.accountBalance}})</b></mat-card-content>
+            
+        </mat-card>
+        
+        <button class = "viewmore" (click) = "onViewMore()">view more</button>
+    </cdk-virtual-scroll-viewport>
+</div>
+<div class="col-8">
+    <table *ngIf="details" class="detailstable">
+        <thead>
+            <tr>
+                <th>Account number</th>
+                <th>Balance</th>
+                <th>Type</th>
+                <th>Nick Name</th>
+            </tr>
+        </thead>
+        <tbody><tr>
+            <!--tr *ngFor = "let d of details"-->
+                <td>{{details.accountNo}}</td>
+                <td>{{details.accountBalance}}</td>
+                <td>{{details.accountType}}</td>
+                <td>{{details.accountNickName}}</td>
+                <td>  
+                    <button class = "btn btn-primary" (click) = "onClick()">Credit Card</button>
+                   
+                    </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <table *ngIf="(creditdetails)?.length>0" class="credittable">
+        <thead>
+            <tr>
+                <th>Card Number</th><th>Credit Limit</th><th>Available Limit</th><th>Payement Due Date</th><th>Min. Payment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let cd of creditdetails">
+                <td>{{cd.creditCardNumber}}</td><td>{{cd.creditLimit}}</td><td>{{cd.avaliableLimit}}</td>
+                <td>{{cd.paymentDueDate}}</td><td>{{cd.minimumPayment}}</td>
+            </tr>
+        </tbody>
+    </table>
   
- <!--Footer-->
-  <div class="footer1">
+
+
+</div>
+    <table *ngIf="(transactiondetails)?.length>0" class="transactiontable">
+        <thead>
+            <tr>
+                <th>Transaction ID</th><th>Amount</th><th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let td of (transactiondetails)">
+                <td>{{td.transactionId}}</td><td>{{td.amount}}</td><td>{{td.date}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--Footer-->
+<div class="footer1">
     <footer class="page-footer font-small unique-color-dark">
 
       <div style="background-color: black;">
@@ -110,17 +169,17 @@
             <h6 class="text-uppercase font-weight-bold">Services</h6>
             <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
             <p>
-              <a href="#!">Accounts</a>
-            </p>
-            <p>
-              <a href="#!">Transactions</a>
-            </p>
-            <p>
-              <a href="#!">Rewards</a>
-            </p>
-            <p>
-              <a href="#!">Credit Score</a>
-            </p>
+                <a routerLink = "/accounts/{{userId}}">Accounts</a>
+              </p>
+              <p>
+                <a routerLink = "/transactions/{{userId}}">Transactions</a>
+              </p>
+              <p>
+                <a routerLink = "/creditscore/{{userId}}">Credit Score</a>
+              </p>
+              <p>
+                <a routerLink = "/rewards/{{userId}}">Rewards</a>
+              </p>
     
           </div>
           <!-- Grid column -->
