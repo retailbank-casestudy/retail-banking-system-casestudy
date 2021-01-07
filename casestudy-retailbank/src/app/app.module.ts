@@ -12,13 +12,19 @@ import { AccountComponent } from './account/account.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { MatCardModule } from '@angular/material/card';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { RewardsComponent } from './rewards/rewards.component';
+import { AddtransactionComponent } from './addtransaction/addtransaction.component';
+import { TransactionlistComponent } from './transactionlist/transactionlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    AccountComponent
+    AccountComponent,
+    RewardsComponent,
+    AddtransactionComponent,
+    TransactionlistComponent
   ],
   imports: [
     BrowserModule,

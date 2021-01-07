@@ -4,101 +4,52 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link active" routerLink = "/home/{{userId}}">Home <span class="sr-only"></span></a>
+        <a class="nav-item nav-link active" routerLink = "/home/{{id}}">Home <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="#">About Us</a>
         <a class="nav-item nav-link" href="#">Contact Us</a>
         <div>
-        <a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" routerLink = "/login" >Logout</a>
+        <a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" (click) = "logout()" >Logout</a>
         </div>
       </div>
     </div>
   </nav>
 
-<div class = "row">
-    <div class="col-4">
-    <label for="accountType">Choose type of Account : </label>
-    <select  [(ngModel)] = "accSelected" (change)='typeOfAccountSelected()'>
-        <option *ngFor="let acc of accounts">{{acc}}</option>
-        
-    </select>
-</div>
-    <div class="col-4" id="topBar">
-    {{accSelected}} Account -
-</div>
-</div>
-<div class = "row">
-<div class="col-4">
-  <cdk-virtual-scroll-viewport itemSize="3" class="viewport">
-      
-        <mat-card *cdkVirtualFor = "let ac of accountnames" (click)="onSelect(ac.accountNo)" (click)="handleClick(ac.accountNo)" >
-     
-            <mat-card-content>{{ac.accountNo}}<b>(Balance-{{ac.accountBalance}})</b></mat-card-content>
-            
-        </mat-card>
-        
-        <button class = "viewmore" (click) = "onViewMore()">view more</button>
-    </cdk-virtual-scroll-viewport>
-</div>
-<div class="col-8">
-    <table *ngIf="details" class="detailstable">
-        <thead>
-            <tr>
-                <th>Account number</th>
-                <th>Balance</th>
-                <th>Type</th>
-                <th>Nick Name</th>
-            </tr>
-        </thead>
-        <tbody><tr>
-            <!--tr *ngFor = "let d of details"-->
-                <td>{{details.accountNo}}</td>
-                <td>{{details.accountBalance}}</td>
-                <td>{{details.accountType}}</td>
-                <td>{{details.accountNickName}}</td>
-                <td>  
-                    <button class = "btn btn-primary" (click) = "onClick()">Credit Card</button>
-                   
-                    </td>
+  <div class="body">
+      <br/><br/>
 
-            </tr>
-        </tbody>
-    </table>
-    
-    <table *ngIf="(creditdetails)?.length>0" class="credittable">
-        <thead>
-            <tr>
-                <th>Card Number</th><th>Credit Limit</th><th>Available Limit</th><th>Payement Due Date</th><th>Min. Payment</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor = "let cd of creditdetails">
-              <td *ngIf="!creditdetails" class="alert alert-danger">{{message1}}</td>
-                <td>{{cd.creditCardNumber}}</td><td>{{cd.creditLimit}}</td><td>{{cd.avaliableLimit}}</td>
-                <td>{{cd.paymentDueDate}}</td><td>{{cd.minimumPayment}}</td>
-            </tr>
-        </tbody>
-    </table>
-  
+      <div class="card">
+        <div class="card-body">
+          <h3>Wallet Amount : </h3>
+          <h5>{{wallet.walletAmount}}</h5>
+        </div>
+      </div>
 
-
+      <br/><br/>
+    <div class="container">
+        <table class="table table-hover table-striped table-secondary" style="color: white; background-color: rgb(129, 129, 129);">
+            <thead>
+                <tr>
+                    <th>Reward Name</th>
+                    <th>Reward Amount</th>
+                    <th>Expiry Date</th>
+                    <th>Claim Rewards</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let r of rewards">
+                    <td>{{r.rewardName}}</td>
+                    <td>{{r.rewardAmount}}</td>
+                    <td>{{r.rewardExpiryDate}}</td>
+                    <td><a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" (click) = "claimRewards(r.rewardId)">Claim Rewards</a></td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+<br/><br/><br/><br/>
   </div>
-  <table mdbTable mdbTableScroll scrollY="true" maxHeight="50" bordered="true" *ngIf="(transactiondetails)?.length>0" class="transactiontable">
-      <thead>
-          <tr>
-              <th scope="col">Transaction ID</th><th scope="col">Amount</th><th scope="col">Date</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor = "let td of (transactiondetails)">
-              <td *ngIf="!transactiondetails" class="alert alert-danger">{{message2}}</td>
-              <td scope="row">{{td.transactionId}}</td><td>{{td.transactionAmount}}</td><td>{{td.transactionDate}}</td>
-          </tr>
-      </tbody>
-  </table>
-</div>
 
-<!--Footer-->
-<div class="footer1">
+  <!--Footer-->
+  <div class="footer1">
     <footer class="page-footer font-small unique-color-dark">
 
       <div style="background-color: black;">
@@ -172,17 +123,17 @@
             <h6 class="text-uppercase font-weight-bold">Services</h6>
             <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
             <p>
-                <a routerLink = "/accounts/{{userId}}">Accounts</a>
-              </p>
-              <p>
-                <a routerLink = "/transactions/{{userId}}">Transactions</a>
-              </p>
-              <p>
-                <a routerLink = "/creditscore/{{userId}}">Credit Score</a>
-              </p>
-              <p>
-                <a routerLink = "/rewards/{{userId}}">Rewards</a>
-              </p>
+              <a routerLink = "/accounts/{{id}}">Accounts</a>
+            </p>
+            <p>
+              <a routerLink = "/transactions/{{id}}">Transactions</a>
+            </p>
+            <p>
+              <a routerLink = "/creditscore/{{id}}">Credit Score</a>
+            </p>
+            <p>
+              <a routerLink = "/rewards/{{id}}">Rewards</a>
+            </p>
     
           </div>
           <!-- Grid column -->
@@ -244,7 +195,5 @@
       <!-- Copyright -->
     
     </footer>
+    </div>
     <!-- Footer -->
-    
-  </div>
-  

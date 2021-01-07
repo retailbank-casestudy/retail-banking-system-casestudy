@@ -41,7 +41,7 @@
     transform: rotateY(180deg);
   }
   .body{
-      background-color: rgb(238, 237, 237);
+    background: linear-gradient(0.15turn, #808080, #ececec, #808080);
   }
   
 
@@ -81,6 +81,7 @@
   padding: 7% 15%;
   text-align: center;
 }
+/*
 .row py-4 d-flex align-items-center{
   padding : 10%;
 }
@@ -103,4 +104,4 @@
 }
 .ins-ic{
   padding-right: 2%;
-}
+}*/

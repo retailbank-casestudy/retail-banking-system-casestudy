@@ -1,147 +1,148 @@
 .container{
-    display: flex;
-  }
-    .viewport {
-      position: fixed;
-      height: 63%;
-     
-      width: 30%;
-      left: 25%;
-      top: 30%;
-      background: #C4BBB8;
-     
-      box-shadow: 1px 1px 1px grey;
-      z-index: 1;
-  
-    }
-    mat-card {
-     
-      margin: 1em;
-      background-color: #1B264F;
-      color: white;
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      font-style: italic;
-    }
-    .detailstable{
-      position: fixed;
-      height: 15%;
-      width: 33%;
-      left: 57%;
-      top: 30%;
-      font-size: 100%;
-      background: #C4BBB8;
-     
-      box-shadow: 1px 1px 1px grey;
-      z-index: 1;
-  
-    }
-    .credittable{
-  
-      position: fixed;
-      height: 15%;
-      width: 33%;
-      top: 78%;
-      left: 57%;
-      font-size: 100%;
-      background: #C4BBB8;
-     
-      box-shadow: 1px 1px 1px grey;
-      z-index: 1;
-  
-  
-    }
-  
-    th{
-      font-size: 70%;
-  
-    }
-  
-    .transactiontable{
-      position: fixed;
-      height: 15%;
-      width: 33%;
-      top: 55.5%;
-      left: 57%;
-      font-size: 100%;
-      background: #C4BBB8;
-     
-      box-shadow: 1px 1px 1px grey;
-      z-index: 1;
-  
-  
-    }
-  
-    .viewmore{
-      position: relative;
-      left: 80%;
-      font-size:70%;
-      background: transparent;
-      border: none;
-  
-  
-    }
-    #topBar{
-  
-      
-      border-radius:5% ;
-      background-color:wheat;
-      width: 65%;
-      height: 10%;
-      position: fixed;
-      left: 25%;
-      font-size: 300%;
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      font-style: italic;
-    }
-    b{
-      position: fixed;
-     font-family: Arial, Helvetica, sans-serif;
-     font-style: normal;
-      left: 70%;
-      font-size: 70%;
-  
-    }
+  display: flex;
+}
+  .viewport {
+    position: fixed;
+    height: 30%;
+   
+    width: 30%;
+    left: 25%;
+    top: 30%;
+    background: #C4BBB8;
+   
+    box-shadow: 1px 1px 1px grey;
+    z-index: 1;
 
-    /* Footer */
+  }
+  mat-card {
+   
+    margin: 1em;
+    background-color: #1B264F;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+  }
+  .detailstable{
+    position: fixed;
+    height: 15%;
+    width: 33%;
+    left: 57%;
+    top: 30%;
+    font-size: 100%;
+    background: #C4BBB8;
+   
+    box-shadow: 1px 1px 1px grey;
+    z-index: 1;
+
+  }
+  .credittable{
+
+    position: fixed;
+    height: 15%;
+    width: 33%;
+    top: 78%;
+    left: 57%;
+    font-size: 100%;
+    background: #C4BBB8;
+   
+    box-shadow: 1px 1px 1px grey;
+    z-index: 1;
+
+
+  }
+
+  th{
+    font-size: 70%;
+
+  }
+
+  .transactiontable{
+    position: fixed;
+    height: 15%;
+    width: 33%;
+    top: 55.5%;
+    left: 57%;
+    font-size: 100%;
+    background: #C4BBB8;
+    padding: 5px;
+   
+    box-shadow: 1px 1px 1px grey;
+    z-index: 1;
+
+
+  }
+
+  .viewmore{
+    position: relative;
+    left: 80%;
+    font-size:70%;
+    background: transparent;
+    border: none;
+
+
+  }
+  #topBar{
+
+    
+    border-radius:5% ;
+    background-color:wheat;
+    width: 45%;
+    height: 5%;
+    position: fixed;
+    left: 25%;
+    font-size: 200%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+  }
+  b{
+    position: fixed;
+   font-family: Arial, Helvetica, sans-serif;
+   font-style: normal;
+    left: 70%;
+    font-size: 70%;
+
+  }
+
+  /* Footer */
 
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  background-color: white;
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+text-align: center;
+background-color: white;
 }
 
 #footer {
-  padding: 7% 15%;
-  text-align: center;
+padding: 7% 15%;
+text-align: center;
 }
 .row py-4 d-flex align-items-center{
-  padding : 10%;
+padding : 10%;
 }
 
 .fb-ic {
-  padding-right: 2%;
-  width: 10%;
+padding-right: 2%;
+width: 10%;
 }
 
 .tw-ic{
- padding-right: 2%; 
+padding-right: 2%; 
 }
 
 .gplus-ic{
-  padding-right: 2%;
+padding-right: 2%;
 }
 
 .li-ic{
-  padding-right: 2%;
+padding-right: 2%;
 }
 .ins-ic{
-  padding-right: 2%;
+padding-right: 2%;
 }
 
 .footer1{
-  padding-top: 700px;
+padding-top: 700px;
 }
 

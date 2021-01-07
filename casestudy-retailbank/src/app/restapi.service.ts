@@ -109,6 +109,63 @@ console.log("here");
  }
  
 
+
+ fetchWallet(userid :any) : Observable<any>{
+  return  this.http.get("http://localhost:8067/rewards/getwalletdeatils/customerId/"+userid);
 }
+
+
+ fetchRewardDetails(userid :any) : Observable<any>{
+  return  this.http.get("http://localhost:8067/rewards/getactiverewards/customerId/"+userid);
+}
+
+claimRewardsFunction(userid : any, rewardid : any) : Observable<any>{
+  return this.http.get("http://localhost:8067/rewards/claimreward/"+userid+"/rewardid/"+rewardid);
+}
+
+
+//Transactions
+
+getTrans(userID:any) : Observable<any>{
+
+  let id = userID.toString();
+  console.log(id);
+  
+      let uri = `http://localhost:7070/lastfive/?userId=`+id;
+      return this.http.get(uri);
+    }
+    save(acno:any, bacno:any,amt:any,type:any) : Observable<any>{
+  
+      console.log(acno);
+      let uri = "http://localhost:7070/add/?accountNo="+acno+"&beneficiaryAccountNumber="+bacno+"&amount="+amt+"&transactionType="+type;
+  
+      return this.http.get(uri,{responseType:'text'});
+    }
+  
+    getTransOfType(paidselected : any): Observable<any>{
+      let type = paidselected.toString();
+  
+     
+         type= type.split(" ").join("");
+  let uri = `http://localhost:7070/filtersByType/?transactionType=`+type;
+      return this.http.get(uri);
+    }
+  
+  
+    getTransByDate(sDate:any  , eDate:any): Observable<any>{
+      let startDate = sDate.toString();
+      let endDate = eDate.toString();
+  
+  let uri = `http://localhost:7070/filtersByDate/?startdate=`+startDate+'&enddate='+endDate;
+      return this.http.get(uri);
+    }
+  
+  
+  }
+  
+
+
+
+
 
 

@@ -1,0 +1,47 @@
+<h3 *ngIf = "message" class="alert alert-success">{{message}}</h3>
+<form #addform = "ngForm" >
+    <div class="row">
+        <div class="col-3">
+           Enter Account Number :
+        </div>
+        <div class="col-4">
+            <input type="number" name="accountnumber" [(ngModel)]="account"
+            class="form-control">
+        </div>
+        <div class="col-3">
+            Enter Beneficiary Account Number :
+         </div>
+        <div class="col-4">
+            <input type="number" name="beneficiaryaccountnumber" [(ngModel)]="beneficiaryaccountnumber"
+            class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+           Enter Amount :
+        </div>
+        <div class="col-4">
+            <input type="number" name="amount" [(ngModel)]="amount"
+            class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            Transaction Type : 
+        </div>
+        <div class="col-4">
+            <select [(ngModel)]="typeselected" name="typeselected">
+               <option *ngFor="let t of transactiontype">{{t}}</option>
+            </select>
+        </div>
+    </div>
+<div class="row">
+    <div class ="col-3">
+      <input type="submit" value="Add" class="btn btn-primary" (click)="submit()">
+    </div>
+    <div class="col-2">
+        <input type="button" value="Back" class="btn btn-primary" (click)="handleClick()">
+    </div>
+</div>
+</form>
+

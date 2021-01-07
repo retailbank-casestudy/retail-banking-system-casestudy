@@ -1,0 +1,59 @@
+<h1>Welcome!!</h1>    
+<div>
+     <input type="button" class="btn btn-primary" (click)="handleClick()" value="Add Transaction">
+</div>
+
+<div class="filter">
+<div class="row">
+      
+        <div class="col-3">
+            <label for="payType">Paid Using : </label>
+            <div>
+            <select  [(ngModel)] = "paidselected" (click) = "onClickPaidUsing()">
+                <option *ngFor="let pu of paidusing">{{pu}}</option>
+            </select>
+        </div>
+        </div>
+        
+        <form >
+        
+            Start Date :
+            <div>
+                <input type="date" name="startdate" [(ngModel)] = "startdate">
+            </div> 
+       
+        
+            End Date :
+            <div>
+                <input type="date" name="enddate" [(ngModel)] = "enddate">
+            </div> 
+
+            <div class="getbtn" style="text-align: center;">
+                <input type="submit" value="Get Details" class="btn btn-primary" (click)="onDate()">
+        </div>
+            </form>
+            <div class="getbtn" style="text-align: center;">
+                <input type="submit" value="Reset" class="btn btn-primary" (click)="get()">
+       
+
+
+<div>
+    <table *ngIf="transDetails" class="table">
+        <thead>
+            <tr>
+                <th>Transaction ID</th><th>Account Number</th>
+                <th>Beneficiary Acc Number</th><th>Amount</th><th>Date</th><th>Type</th>
+            </tr>
+        </thead>
+     
+        <tbody>
+            <tr *ngFor="let d of transDetails">
+                <td>{{d.transactionId}}</td><td>{{d.accountNumber}}</td>
+                <td>{{d.beneficiaryAccountNumber}}</td><td>{{d.transactionAmount}}</td><td>{{d.transactionDate}}</td><td>{{d.transactionType}}</td>
+            </tr>
+        </tbody>
+    
+    </table>
+</div>
+
+
