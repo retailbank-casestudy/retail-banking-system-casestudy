@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:"home/:id",component:HomeComponent},
   {path:"accounts/:id",component:AccountComponent},
   {path:"transactions/:id",component:TransactionlistComponent},
-  {path: "add-transaction/:id", component:AddtransactionComponent},
+  {path: "add-transaction", component:AddtransactionComponent},
   // {path:"creditscore/:id",component:},
   {path:"rewards/:id",component:RewardsComponent},
 ];

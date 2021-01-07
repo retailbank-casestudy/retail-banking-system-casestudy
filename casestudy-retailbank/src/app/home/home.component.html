@@ -63,14 +63,14 @@
                 <thead>
                     <tr>
                         <th>TransId</th>
-                        <th>TransType</th>
+                        <th>TransDate</th>
                         <th>TransAmt</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor = "let t of transactions">
                         <td>{{t.transactionId}}</td>
-                        <td>{{t.transactionType}}</td>
+                        <td>{{t.transactionDate}}</td>
                         <td>{{t.transactionAmount}}</td>
                     </tr>
                 </tbody>
@@ -97,7 +97,7 @@
               <div class="box">
                 <div>Credit Score : {{credits}}</div>
               </div>
-              <a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" routerLink = "/creditscore/{{id}}">View More</a>
+              <!--<a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" routerLink = "/creditscore/{{id}}">View More</a>-->
             </div>
           </div>
         </div>

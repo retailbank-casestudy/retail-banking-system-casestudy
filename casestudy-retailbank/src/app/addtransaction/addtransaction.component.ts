@@ -28,7 +28,7 @@ account:any;
  
 }
 handleClick(){
-this._router.navigate(["transaction"]);
+window.history.back();
 
 }
 
