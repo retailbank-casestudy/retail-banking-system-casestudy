@@ -1,17 +1,20 @@
 .container{
   display: flex;
 }
+
+
   .viewport {
-    position: fixed;
-    height: 30%;
-   
+    position: absolute;
+    height: 65%;
+    bottom: 50%;
     width: 30%;
     left: 25%;
     top: 30%;
+   
     background: #C4BBB8;
    
     box-shadow: 1px 1px 1px grey;
-    z-index: 1;
+    
 
   }
   mat-card {
@@ -23,7 +26,7 @@
     font-style: italic;
   }
   .detailstable{
-    position: fixed;
+    position: absolute;
     height: 15%;
     width: 33%;
     left: 57%;
@@ -37,7 +40,7 @@
   }
   .credittable{
 
-    position: fixed;
+    position: absolute;
     height: 15%;
     width: 33%;
     top: 78%;
@@ -56,16 +59,17 @@
 
   }
 
+  
+
   .transactiontable{
-    position: fixed;
-    height: 15%;
-    width: 33%;
-    top: 55.5%;
-    left: 57%;
+   
+    position: absolute;
+    height: 100%;
+    width:100%;
+   
     font-size: 100%;
     background: #C4BBB8;
     padding: 5px;
-   
     box-shadow: 1px 1px 1px grey;
     z-index: 1;
 
@@ -88,7 +92,7 @@
     background-color:wheat;
     width: 45%;
     height: 5%;
-    position: fixed;
+    position: absolute;
     left: 25%;
     font-size: 200%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -146,3 +150,15 @@ padding-right: 2%;
 padding-top: 700px;
 }
 
+.trxndetails{
+
+  overflow-y:auto ;
+  overflow-x: hidden;
+  
+  position: absolute;
+    height: 15%;
+    width:33%;
+    top: 55.5%;
+    left: 57%;
+
+}

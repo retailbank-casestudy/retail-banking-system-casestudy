@@ -18,13 +18,14 @@ export class HomeComponent implements OnInit {
   transactions : any = [];
   credits : any = undefined;
   rewards : any = undefined;
+  loans : any = [{"loanType":"Personal","interest":"10%","period":"12 months"},{"loanType":"Vehical","interest":"12%","period":"36 months"},{"loanType":"Home","interest":"7%","period":"120 months"}];
 
 
   constructor(private service:RestapiService, private router:Router, private activatedRoute : ActivatedRoute) { }
 
   ngOnInit():void {
     this.activatedRoute.params.subscribe((key : Params) => this.id = key.id);
-    this.service.fetchUsername(this.id).subscribe(response => this.username = response);
+    //this.service.fetchUsername(this.id).subscribe(response => this.username = response);
     this.service.fetchAccounts(this.id).subscribe(response => this.accounts = response);
     this.service.fetchTransactions(this.id).subscribe(response => this.transactions = response);
     this.service.fetchCredits(this.id).subscribe(response => this.credits = response);
@@ -33,6 +34,10 @@ export class HomeComponent implements OnInit {
 
   logout(){
     this.router.navigate(["login"]);
+  }
+
+  scroll(el: HTMLElement){
+    el.scrollIntoView();
   }
 
 //   getUsers(){

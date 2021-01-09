@@ -29,4 +29,5 @@ export class RewardsComponent implements OnInit {
     this.service.claimRewardsFunction(this.id, rid).subscribe(response => this.rewards = response);
     
   }
+
 }

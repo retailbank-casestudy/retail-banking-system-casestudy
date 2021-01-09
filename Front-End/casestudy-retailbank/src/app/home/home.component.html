@@ -1,35 +1,68 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <a class="navbar-brand" routerLink = "/home/{{id}}">Welcome {{username}} !</a>
+<nav class="navbar navbar-expand-lg sticky-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ml-auto">
+      <div class="navbar-nav">
         <a class="nav-item nav-link active" routerLink = "/home/{{id}}">Home <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="#">About Us</a>
         <a class="nav-item nav-link" href="#">Contact Us</a>
         <div>
-        <a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" (click) = "logout()" >Logout</a>
+        <a class="btn" style="background-color: white; margin-left:71rem;" (click) = "logout()" >Logout</a>
         </div>
       </div>
     </div>
   </nav>
 <div class="body">
+  <br><br>
+  <div class="container" style="background-color: white; height: 38rem; width: 90%; padding: 3% 5% 0 5%; border-radius: 50px; color: #15008b;">
+    
+    <img style="float: right;" src="/assets/images/bank2.jpg">
+    <div class="welcome-content">
+      <h3>
+        Hello {{username}} !
+      </h3>
+      <br>
+      <h5 style="padding-left: 2rem; line-height: 4rem;">
+        Welcome to ICIC Bank! <br>
+        One Stop for all your Financial Services
+      </h5>
+      <br>
+      
+      <button style="margin-left: 7rem; font-size: medium;" (click) = "scroll(target)">Get My Details</button>
+      </div>
+  </div>
   <br/><br/>
-  <div class="container">
+  <br/><br/>
+
+
+
+  <div class="hr-image">
+    <img src="/assets/images/hr.jpg" style="padding: 0 15%;">
+  </div>
+
+
+
+
+
+  <br/>
+  <div #target class="container" style="padding-left: 5%;">
+    <br/> <br><br>
     <div class="row">
-      <div class="col"></div>
+
       <div class="col">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://static.thenounproject.com/png/1436353-200.png" alt="Accounts" style="width:300px;height:300px;">
-              <span class="carousel-caption">ACCOUNTS</span>
-            </div>
-            <div class="flip-card-back">
-              <h1>Accounts</h1> 
-              <table class="table table-sm table-hover table-striped" style="font-size: 12px;">
-                <thead>
+
+        <div class="card">
+          <br><br><br>
+          <img class="card-img-top" src="https://account.samsung.com/membership/assets/images/intro/intro_mbr.png" alt="Card image cap">
+          <br>
+          <div class="card-body">
+            
+            <h5 class="card-title">ACCOUNTS</h5>
+            <div class="card-text">
+              
+              <table class="table-custom" style="font-size: 12px;">
+                <thead class="thead-light">
                     <tr>
                         <th>AccName</th>
                         <th>AccType</th>
@@ -44,23 +77,23 @@
                     </tr>
                 </tbody>
               </table>
-              <a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" routerLink = "/accounts/{{id}}">View More</a>
             </div>
+            <br><br>
+            <a routerLink = "/accounts/{{id}}" class="btn" id="card-viewmore" style="margin-top: 17px;">View More</a>
           </div>
         </div>
+
       </div>
-      <div class="col"></div>
+      
       <div class="col">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://www.fnbabsecon.com/wp-content/uploads/2016/06/loan-icon.png" alt="Transactions" style="width:300px;height:300px;">
-              <span class="carousel-caption">TRANSACTIONS</span>
-            </div>
-            <div class="flip-card-back">
-              <h1>Transactions</h1> 
-              <table class="table table-sm table-hover table-striped" style="font-size: 12px;">
-                <thead>
+
+        <div class="card">
+          <img class="card-img-top" src="/assets/images/transactions.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">TRANSACTIONS</h5>
+            <div class="card-text">
+              <table class="table-custom " style="font-size: 12px;">
+                <thead class="thead-light">
                     <tr>
                         <th>TransId</th>
                         <th>TransDate</th>
@@ -75,62 +108,137 @@
                     </tr>
                 </tbody>
               </table>
-              <a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" routerLink = "/transactions/{{id}}">View More</a>
             </div>
+            <a routerLink = "/transactions/{{id}}" class="btn" id="card-viewmore">View More</a>
           </div>
         </div>
+
       </div>
-      <div class="col"></div>
-    </div>
-    <br/><br/>  
+    
+      
+      <div class="col">
+
+        <div class="card">
+          <br>
+          <img class="card-img-top" src="/assets/images/rewards.jpg" alt="Card image cap">
+          
+          <div class="card-body" style="margin-top: 60px;">
+            <h5 class="card-title">REWARDS</h5>
+            <div class="card-text">
+              <div class="box">
+                <div>
+                <br><br><br>
+                  <h5>Total Rewards</h5>
+                  <p>{{rewards}}</p>
+                  </div>
+              </div>
+            </div>
+            <br>
+            <a routerLink = "/rewards/{{id}}" class="btn" id="card-viewmore" style="margin-top: 24px;">View More</a>
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+    <br><br><br>
     <div class="row">
-      <div class="col"></div>
       <div class="col">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://static.thenounproject.com/png/2218877-200.png" alt="Credit Score" style="width:300px;height:300px;">
-              <span class="carousel-caption">CREDIT SCORE</span>
-            </div>
-            <div class="flip-card-back">
-              <h1>Credit Score</h1> 
+
+        <div class="card">
+          <br><br>
+          <img class="card-img-top" src="/assets/images/credits.jpg" alt="Card image cap">
+          
+          <div class="card-body" style="margin-top: 63px;">
+            <h5 class="card-title">CREDIT REPORT</h5>
+            <div class="card-text">
               <div class="box">
-                <div>Credit Score : {{credits}}</div>
+                <div>
+                  <br><br><br>
+                  <h5>Credit Score</h5>
+                  <p>{{credits}}</p>
+                </div>
               </div>
-              <!--<a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" routerLink = "/creditscore/{{id}}">View More</a>-->
             </div>
+            <br><br>
+            <a routerLink = "/creditscore/{{id}}" class="btn" id="card-viewmore" style="margin-top: 7px;">View More</a>
           </div>
         </div>
+
       </div>
-      <div class="col"></div>
+
       <div class="col">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://www.flaticon.com/svg/static/icons/svg/1426/1426708.svg" alt="Rewards" style="width:300px;height:300px;">
-              <span class="carousel-caption">REWARDS</span>
+
+        <div class="card">
+          <br><br>
+          <img class="card-img-top" src="/assets/images/loan.jpg" alt="Card image cap">
+          
+          <div class="card-body" style="margin-top: 63x;">
+            <h5 class="card-title">LOANS</h5>
+            <div class="card-text">
+              <table class="table-custom" style="font-size: 12px;">
+                <thead class="thead-light">
+                    <tr>
+                        <th>LoanType</th>
+                        <th>Interest</th>
+                        <th>TimePeriod</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let l of loans">
+                        <td>{{l.loanType}}</td>
+                        <td>{{l.interest}}</td>
+                        <td>{{l.period}}</td>
+                    </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="flip-card-back">
-              <h1>Rewards</h1> 
-              <div class="box">
-                <div>Total Rewards : {{rewards}}</div>
-              </div>
-              <a class="btn btn-secondary" style="color: white; background-color: rgb(129, 129, 129);" routerLink = "/rewards/{{id}}">View More</a>
-            </div>
+            <br><br>
+            <a href="#myModal" data-toggle="modal" class="btn" id="card-viewmore" style="margin-top: 25px;">View More</a>
           </div>
         </div>
+
       </div>
-      <div class="col"></div>
+
+      <div class="col">
+
+        <div class="card">
+          <br>
+          <img class="card-img-top" style="padding-bottom: 2%;" src="/assets/images/achievements.jpg" alt="Card image cap">
+          
+          <div class="card-body" style="margin-top: 63px;">
+            <h5 class="card-title" style="padding-bottom: 5px;">ACHIEVEMENTS</h5>
+            <div class="card-text">
+              <div class="box">
+                <div style="line-height: 35px; text-align: left;">
+                  <i class='fas fa-medal' style='font-size:18px;color:white;'></i>&nbsp; 56,000 New Customers in this year <br>
+                  <i class='fas fa-medal' style='font-size:18px;color:white;'></i>&nbsp; Amount deposited 12% higher than &nbsp;&nbsp;&nbsp;&nbsp; previous year <br>
+                  <i class='fas fa-medal' style='font-size:18px;color:white;'></i>&nbsp; 12,000 Loans Sanctioned <br>
+                  <i class='fas fa-medal' style='font-size:18px;color:white;'></i> &nbsp;<i class="fa fa-rupee" style="font-size:16px;color:white"></i> 2 Crore collected as amount of 
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; interest on loans
+                </div>
+              </div>
+            </div>
+            <br><br>
+            <a href="#myModal" data-toggle="modal" class="btn" id="card-viewmore">View More</a>
+          </div>
+        </div>
+
+      </div>
     </div>
+      
+      
+      
+    
   </div>
-  <br/><br/>
+  <br/><br/><br/>
   </div>
 
   <!--Footer-->
   <div class="footer1">
     <footer class="page-footer font-small unique-color-dark">
 
-      <div style="background-color: black;">
+      <div style="background-color:  #15008b; color: white;">
         <div class="container">
     
           <!-- Grid row-->
@@ -277,3 +385,26 @@
     
   </div>
   
+
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header flex-column">
+          <div class="icon-box">
+            <i class="material-icons">&#xE5CD;</i>
+          </div>
+          <h4 class="modal-title w-100">Not Found</h4>
+          <a class="close" data-dismiss="modal"
+            aria-hidden="true">&times;</a>
+        </div>
+        <div class="modal-body">
+          <p>This section is under MAINTENANCE till Wednesday, January 13, 6:00 P.M.</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <a class="btn btn-danger" style="color: white;"
+            data-dismiss="modal">OK</a>
+
+          
+        </div>
+      </div>
+    </div>

@@ -1,3 +1,12 @@
+.navbar { 
+  background-color: #15008b; 
+} 
+
+.navbar .navbar-brand, 
+.navbar .navbar-text{ 
+    color :white; 
+}
+
 .footer {
     position: fixed;
     left: 0;
