@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit():void {
     this.activatedRoute.params.subscribe((key : Params) => this.id = key.id);
-    //this.service.fetchUsername(this.id).subscribe(response => this.username = response);
+    this.service.fetchUsername(this.id).subscribe(response => this.username = response);
     this.service.fetchAccounts(this.id).subscribe(response => this.accounts = response);
     this.service.fetchTransactions(this.id).subscribe(response => this.transactions = response);
     this.service.fetchCredits(this.id).subscribe(response => this.credits = response);

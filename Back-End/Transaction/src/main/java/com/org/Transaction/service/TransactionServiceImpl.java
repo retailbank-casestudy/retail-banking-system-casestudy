@@ -134,12 +134,6 @@ public class TransactionServiceImpl implements TransactionService{
 				.collect(Collectors.toList());
 	}
 	
-	
-	public List<Transaction> getLastFive(String userId){
-		return dao.getAllTransactions().stream().filter(t -> t.getUserId().equals(userId))
-				.sorted(Comparator.comparing(Transaction::getTransactionDate).reversed()).limit(5)
-				.collect(Collectors.toList());
-	}
 
 	public List<Transaction> getLastFiveTransactions(long accountNumber) {
 		return dao.getAllTransactions().stream().filter(t -> t.getAccountNumber() == accountNumber)
@@ -158,6 +152,48 @@ public class TransactionServiceImpl implements TransactionService{
 	public List<Transaction> getTransactionByAccount(long accNo) {
 		
 		return dao.getTransactionByAccount(accNo);
+	}
+
+	@Override
+	public List<Long> getAccountList(List<AccountsModel> accounts) {
+		// TODO Auto-generated method stub
+		List<Long> accountNos = new ArrayList<>();
+		for(AccountsModel account : accounts) {
+			accountNos.add(account.getAccountNo());
+		}
+		return accountNos;
+
+	}
+	@Override
+	public List<Transaction> getFilters(String userId, String accNo, String transactionType, String startDate, String endDate) {
+		List<Transaction> list = dao.getAllTransactions().stream().filter(transaction -> transaction.getUserId().equals(userId)).collect(Collectors.toList());
+		System.out.println(list);
+		if(!accNo.equals("SELECT")&&!accNo.equals("")) {
+			list = dao.getTransactionByAccount(Long.parseLong(accNo));
+		}
+		if(!transactionType.equals("ALL")&&!transactionType.equals("")) {
+			list = list.stream().filter(transaction -> transaction.getTransactionType().equals(transactionType))
+					.collect(Collectors.toList());
+		}
+		if(!startDate.equals("") && !endDate.equals("")) {
+			list = list.stream()
+					.filter(transaction -> transaction.getTransactionDate().isAfter(LocalDate.parse(startDate))
+							&& transaction.getTransactionDate().isBefore(LocalDate.parse(endDate)))
+					.collect(Collectors.toList());
+		}
+		System.out.print(list);
+		return list;
+	}
+
+	@Override
+	public List<Transaction> getLastFive(String userId) {
+		return dao.getAllTransactions().stream().filter(transaction -> transaction.getUserId().equals(userId)).collect(Collectors.toList());
+		
+	}
+
+	@Override
+	public List<Transaction> getLastThreeMonthsTransactions(String userId) {
+		return dao.getAllTransactions().stream().filter(transaction -> LocalDate.now().minusMonths(3).isBefore(transaction.getTransactionDate())).collect(Collectors.toList());
 	}
 
 //	public void getCreditCard() {

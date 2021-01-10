@@ -20,4 +20,7 @@ public interface TransactionService {
 	public List<Transaction> getLastFiveTransactions(long accountNumber);
 	public List<Transaction> getTransactionsWithFiltersType(String type);
 	public List<Transaction> getTransactionByAccount(long accNo);
+	public List<Long> getAccountList(List<AccountsModel> accounts);
+	List<Transaction> getFilters(String userId, String accNo, String transactionType, String startDate, String endDate);
+	public List<Transaction> getLastThreeMonthsTransactions(String userId);
 }

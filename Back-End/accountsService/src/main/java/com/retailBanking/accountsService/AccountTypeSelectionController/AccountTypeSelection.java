@@ -8,7 +8,9 @@ import com.retailBanking.accountsService.Models.AccountsModel;
 public interface AccountTypeSelection {
 	
 	
-	List<AccountsModel> getAccountType(String type) throws IOException;
+	
+
+	List<AccountsModel> getAccountType(String type, String id);
 
 	
 }

@@ -1,6 +1,7 @@
 package com.cts.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,6 +11,8 @@ import com.cts.entity.Account;
 import com.cts.entity.AccountService;
 import com.cts.entity.Transaction;
 import com.cts.entity.TransactionService;
+import com.cts.entity.User;
+import com.cts.entity.UserRepository;
 
 @Component
 public class HomepageServiceImpl implements HomepageService {
@@ -22,6 +25,9 @@ public class HomepageServiceImpl implements HomepageService {
 
 	@Autowired
 	private TransactionService transactionService;
+	
+	@Autowired
+	private UserRepository user;
 	
 	@Override
 	public List<Account> getAccounts(long userId) {
@@ -46,6 +52,13 @@ public class HomepageServiceImpl implements HomepageService {
 	public int getNoOfRewards(long custId) {
 		int noOfRewards = rest.getForObject("http://REWARDSAPPLICATION/rewards/getAllRewards/"+custId, Integer.class);
 		return noOfRewards;
+	}
+	
+	
+	public String getUserName(int userId) {
+		Optional<User> myUser = user.findById(userId);
+		String userName = myUser.get().getUserName();
+		return userName;
 	}
 
 	

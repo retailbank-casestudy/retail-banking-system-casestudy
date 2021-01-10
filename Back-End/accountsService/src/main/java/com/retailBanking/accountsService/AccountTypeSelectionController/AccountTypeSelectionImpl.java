@@ -20,10 +20,10 @@ public class AccountTypeSelectionImpl implements AccountTypeSelection{
 
 	@Override
 	@GetMapping(value = "/accountType")
-	public List<AccountsModel> getAccountType(@RequestParam(name = "type") String type){
-
+	public List<AccountsModel> getAccountType(@RequestParam(name = "type") String type,@RequestParam(name="id") String id){
+Double userID = Double.parseDouble(id);
 		
-		return	service.getAccountType(type);
+		return	service.getAccountType(type,userID);
 		
 
 	}

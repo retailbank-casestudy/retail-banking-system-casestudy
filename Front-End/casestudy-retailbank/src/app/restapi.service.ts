@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class RestapiService {
     user:any;
     pass:any;
-    id:any = 1;
+    id:any;
     type:any;
     accSelected :any;
 
@@ -42,11 +42,10 @@ export class RestapiService {
 fetchUsername(userid :any) : Observable<any>{
   
     //const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.user+ ':' + this.pass) });
-    return  this.http.get("http://localhost:8919/home/"+userid);
+    return  this.http.get("http://localhost:8919/getUsername/"+userid);
 }
 
 fetchAccounts(userid :any) : Observable<any>{
-  this.id = userid;
     //const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.user+ ':' + this.pass) });
     return  this.http.get("http://localhost:8919/accounts/"+userid);
 }
@@ -95,11 +94,11 @@ console.log("here");
  
 }
 
-fetchListForAccountType(  accSelected:String) : Observable<any>{
+fetchListForAccountType(  accSelected:String, userId:any) : Observable<any>{
  let accountType = accSelected.toLowerCase();
 
- console.log(this.id+"selected in  fetchListForAccountType service");
-let uri = 'http://localhost:8081/accountType/?type='+accountType+'&id='+this.id;
+ console.log(accountType+userId+"selected in  fetchListForAccountType service");
+let uri = 'http://localhost:8081/accountType/?type='+accountType+'&id='+userId;
 
 return this.http.get(uri);
 
@@ -205,8 +204,21 @@ getAccNumber(accno:any):Observable<any>{
  console.log(this.accNo);
   return this.getFilter();
 }
+// Credit Score
+
+getMonthList(userid:any):Observable<any>{
+  this.id=userid;
+  return this.http.get("http://localhost:8085/score/"+this.id);
+}
+
+getLatestCreditScore(userid:any):Observable<any>{
+  this.id=userid;
+  return this.http.get("http://localhost:8085/score/latest/"+this.id);
+}
   }
   
+
+
 
 
 

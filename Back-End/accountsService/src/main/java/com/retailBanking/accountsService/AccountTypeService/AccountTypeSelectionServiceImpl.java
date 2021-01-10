@@ -14,9 +14,9 @@ public class AccountTypeSelectionServiceImpl implements AccountTypeSelectionServ
 	AccountRecord record;
 
 	@Override
-	public List<AccountsModel> getAccountType(String type )  {
+	public List<AccountsModel> getAccountType(String type, Double userID )  {
 		
-	return record.getAllAccountsListforType(type);
+	return record.getAllAccountsListforType(type,userID);
 				
 				
 	}

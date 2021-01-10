@@ -20,6 +20,11 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { CreditComponent } from './credit/credit.component';
 import { DdaAccountComponent } from './dda-account/dda-account.component';
 import { SavingsAccountComponent } from './savings-account/savings-account.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreditscoreComponent } from './creditscore/creditscore.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,8 @@ import { SavingsAccountComponent } from './savings-account/savings-account.compo
     ContactusComponent,
     CreditComponent,
     DdaAccountComponent,
-    SavingsAccountComponent
+    SavingsAccountComponent,
+    CreditscoreComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,11 @@ import { SavingsAccountComponent } from './savings-account/savings-account.compo
     HttpClientModule,
     ScrollingModule,
     MatCardModule,
-    MDBBootstrapModule.forRoot()
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MDBBootstrapModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [RestapiService],
   bootstrap: [AppComponent]

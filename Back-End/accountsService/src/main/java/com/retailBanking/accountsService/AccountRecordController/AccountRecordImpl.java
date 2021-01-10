@@ -1,22 +1,14 @@
 package com.retailBanking.accountsService.AccountRecordController;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -26,6 +18,7 @@ import com.retailBanking.accountsService.AccountTransactionController.AccountTra
 import com.retailBanking.accountsService.BusinessLogic.First5Accounts;
 import com.retailBanking.accountsService.Models.AccountsModel;
 import com.retailBanking.accountsService.Models.CreditCardModel;
+import com.retailBanking.accountsService.Models.CreditCardModelLite;
 import com.retailBanking.accountsService.Models.Transaction;
 
 @RestController
@@ -58,7 +51,7 @@ public class AccountRecordImpl implements AccountRecord {
 		List<AccountsModel> getThreeAccounts =getAllAccountDetails(type, id).stream().limit(3).collect(Collectors.toList());
 		return getThreeAccounts;
 	}
-
+@Override
 	@GetMapping(value = "/accountsForTransactionService",produces =MediaType.APPLICATION_JSON_VALUE)
 	public List<AccountsModel> getaccountsForTransactions(@RequestParam("userid")String id) {
 		System.out.println("in accounts");
@@ -92,16 +85,18 @@ public class AccountRecordImpl implements AccountRecord {
 	@Override
 	@GetMapping("/viewMore")
 	public List<AccountsModel> getAccountDetailsByType() {
-		System.out.println(type);
+		System.out.println(type + "-"+id);
 		List<AccountsModel> accountDetailsByTypeList = service.fetchAllAccountByViewMore(type, id);
 		return accountDetailsByTypeList;
 	}
 
 	@Override
-	public List<AccountsModel> getAllAccountsListforType( String acctype) {
+	public List<AccountsModel> getAllAccountsListforType( String acctype , Double id) {
 
-		System.out.println(type);
+		
 		this.type=acctype;
+		this.id=id;
+		System.out.println(type+id);
 		List<AccountsModel> data = service.getAllAccountsListforType(type, id);
 
 		return firstFiveAccount.firstFiveAccounts(data);
@@ -121,13 +116,13 @@ public class AccountRecordImpl implements AccountRecord {
 	}
 
 	@Override
-	@GetMapping("/getCreditCardDetatils")
-	public List<CreditCardModel> getCreditCardDetatils() {
-        
-		System.out.println(accountNo);
-		List<CreditCardModel> creditCardData = new ArrayList<CreditCardModel>();
+	@GetMapping("/getCreditCardNumber")//using user id
+	public List<CreditCardModelLite> getCreditCardNumbers(@RequestParam("userID") double id) {
+        this.id=id;
+		System.out.println(this.id);
+		List<CreditCardModelLite> creditCardData = new ArrayList<CreditCardModelLite>();
 		try {
-			creditCardData = service.getCreditCardDetatils(accountNo);
+			creditCardData = service.getCreditCardNumbers(this.id);
 		} catch (Exception e) {
 			// return "Please go to bank and apply for Credit Card";
 			System.out.println("Please go to bank and apply for Credit Card");
@@ -135,27 +130,51 @@ public class AccountRecordImpl implements AccountRecord {
 		return creditCardData;
 	}
 	
-	@GetMapping("/getCreditCard")
-public CreditCardModel getCreditCard(@RequestParam("accno") String accno) {
+	@Override
+	@GetMapping("/getCreditCardDetails")//using cardno
+public List<CreditCardModel> getCreditCardDetails(@RequestParam("credno") String credno) {
         
-		System.out.println(accno);
-		Long accNo = Long.parseLong(accno);
-		CreditCardModel creditCardData = new CreditCardModel();
+		System.out.println(credno);
+		Long cardnumber = Long.parseLong(credno);
+		List<CreditCardModel> creditCardData = new ArrayList<CreditCardModel>();
 		try {
-			creditCardData = service.getCreditCard(accNo);
+			creditCardData = service.getCreditCardDetails(cardnumber);
 		} catch (Exception e) {
 			// return "Please go to bank and apply for Credit Card";
 			System.out.println("Please go to bank and apply for Credit Card");
 		}
+		System.out.println(creditCardData);
 		return creditCardData;
 	}
+	@Override
+	@GetMapping("/getCreditCardTransactionDetails")//using cardno
+public List<Transaction> getCreditCardTransactionDetails(@RequestParam("credno") String credno) {
+        System.out.println(credno+"in traxn details");
+		long accountNo = Long.parseLong(credno);
+		List<Transaction> trxndata = new ArrayList<Transaction>();
+		try {
+			trxndata= accountTransaction.getTransactionByAccount(accountNo);
+		} catch (Exception e) {
+		
+			 return trxndata;
+			
+		//	System.out.println("no data available , if problem presists please visit near by bank branch");
+		}
+		
+		
+		
+		return trxndata.stream().sorted((x, y) -> y.getTransactionDate().compareTo(x.getTransactionDate())).limit(2).collect(Collectors.toList());
+		
+	}
+	
+	
 
 	@Override
 	@GetMapping(value = "/getAccountTransactionData", produces = { MediaType.APPLICATION_JSON_VALUE })
 	@HystrixCommand(fallbackMethod = "fallbackForGetTransactionByAccount", commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000000") })
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000") })
 	public List<Transaction> getAccountTransactionData(@RequestParam("accNo") String accNo) {
-		System.out.println(accNo);
+		System.out.println(accNo+"traxn Data");
 		long accountNo = Long.parseLong(accNo);
 		List<Transaction> trxndata = new ArrayList<Transaction>();
 		try {
@@ -167,10 +186,11 @@ public CreditCardModel getCreditCard(@RequestParam("accno") String accno) {
 		//	System.out.println("no data available , if problem presists please visit near by bank branch");
 		}
 		
-		return trxndata;
-
+		return trxndata.stream().sorted((x, y) -> y.getTransactionDate().compareTo(x.getTransactionDate())).limit(2).collect(Collectors.toList());
+		
 	}
 	
+	@Override
 	@GetMapping("account/serviceDown")
     public List<Transaction> fallbackForGetTransactionByAccount(String no){
         System.out.println("fallbackForGetTransactionByAccount() is called");
@@ -180,7 +200,7 @@ public CreditCardModel getCreditCard(@RequestParam("accno") String accno) {
        
 //        return "Service down, try after sometime!!!";
     }
-	
+	/*
 	@PostMapping(value = "/saveCreditCardDetailsAfterTransaction" ,consumes = MediaType.APPLICATION_JSON_VALUE)
 public CreditCardModel saveCreditCard(@RequestBody CreditCardModel card) {
         
@@ -201,7 +221,7 @@ public AccountsModel saveAccountAfterTransaction(@RequestBody AccountsModel acco
 		return null;
 	}
 	
-	
+	*/
 
 
 }

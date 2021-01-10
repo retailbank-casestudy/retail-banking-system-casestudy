@@ -21,4 +21,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 	@Query("select a from Transaction a where a.accountNumber=?1")
 	List<Transaction> getTransactionByAccount(long accNo);
 
+	@Query("select a from Transaction a order by a.transactionDate desc")
+	List<Transaction> allTransactions();
+	
 }

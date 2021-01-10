@@ -11,10 +11,8 @@ import com.retailBanking.accountsService.Models.CreditCardModel;
 
 public interface CreditCardRepository extends JpaRepository<CreditCardModel, Long>{
 
-	@Query("select a from CreditCardModel a Where a.accountNo=?1")
-	public List<CreditCardModel> getCreditCardDetatils(long accountNo) ;
-
-	@Query("select a from CreditCardModel a Where a.accountNo=?1")
-	public CreditCardModel getCreditCard(Long accNo);
+	
+@Query("select a from CreditCardModel a Where a.creditCardNumber=?1")
+	public List<CreditCardModel> getCreditCardDetails(Long cardNo);
 		
 }

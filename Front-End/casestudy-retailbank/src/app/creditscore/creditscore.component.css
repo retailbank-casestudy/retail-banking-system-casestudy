@@ -1,0 +1,151 @@
+
+
+.navbar { 
+    background-color : #15008b; 
+  } 
+  
+  .navbar .navbar-brand, 
+  .navbar .navbar-text,
+  .nav-item { 
+      color : white; 
+  }
+  
+  
+  
+  .body{
+      background: #c7dafd;
+    }
+  
+    .card{
+        margin-left: 25%;
+        margin-right: 25%;
+        text-align: center;
+        border-radius: 35px;
+    }
+  
+    .container-list{
+      margin: 0 9%;
+    }
+  
+    table{
+      color: white;
+      text-align: center;
+      
+    }
+    .table-custom{
+      border-collapse: collapse;
+      
+        margin: 25px 0;
+        min-width: 78.2rem;
+        min-height: 320px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .table-custom thead tr{
+      background-color:white;
+        color: black;
+    }
+    
+    .table-custom th,
+    .table-custom td {
+        padding: 7px 10px;
+    }
+    
+    .table-custom tbody tr {
+      border-bottom: 1px solid #dddddd;
+    }
+    
+    .table-custom tbody tr:nth-of-type(even) {
+      background-color:  #2a5fc2;
+    }
+    
+    .table-custom tbody tr:last-of-type {
+      border-bottom: 2px solid  #c7dafd;
+    }
+  
+  
+    /* Footer */
+  
+  .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background-color: white;
+    }
+    
+    #footer {
+      padding: 7% 15%;
+      text-align: center;
+    }
+    /*
+    .row py-4 d-flex align-items-center{
+      padding : 10%;
+    }
+    
+    .fb-ic {
+      padding-right: 2%;
+      width: 10%;
+    }
+    
+    .tw-ic{
+     padding-right: 2%; 
+    }
+    
+    .gplus-ic{
+      padding-right: 2%;
+    }
+    
+    .li-ic{
+      padding-right: 2%;
+    }
+    .ins-ic{
+      padding-right: 2%;
+    }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#divChart{
+    display:block;
+    height: 600px;
+    width: 800px;
+    align-content: center;
+    margin-left: 2rem;
+}
+
+.progress-bar-container {
+    background-color: rgb(247, 243, 243);
+    width:600px;
+    margin-left: 7rem;
+
+ }
+.progress-bar {    
+    height: 12px;
+    width: 0;
+ }
+ .progress-bar.green {
+    background-color: green;
+ }
+ .progress-bar.yellow {
+    background-color: yellow;
+ }
+ .progress-bar.red {
+    background-color: rgb(253, 8, 122);
+ }
+ .score{
+     align-content: center;
+ }

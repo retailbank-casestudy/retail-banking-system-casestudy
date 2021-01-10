@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Component
 public interface TransactionService {
 
-	@GetMapping("/latestfive/{userId}")
+	@GetMapping("/lastfive/?userId={userId}")
 	public List<Transaction> getTransaction(@PathVariable("userId") String userId);
 }

@@ -9,7 +9,7 @@ import { RestapiService } from '../restapi.service';
 })
 export class SavingsAccountComponent implements OnInit {
 
-  userId : any = 1;
+  userId : any;
   accSelected : String="savings";
   details : any;
   transactiondetails : any;
@@ -26,7 +26,7 @@ export class SavingsAccountComponent implements OnInit {
     console.log("in Savings acc selected - "+this.accSelected);
     this.details=null;
     this.transactiondetails=null;
-    this._service.fetchListForAccountType(this.accSelected).subscribe(val => this.accountnames=val);
+    this._service.fetchListForAccountType(this.accSelected, this.userId).subscribe(val => this.accountnames=val);
     }
     onSelect(accno : any){
       console.log(accno);

@@ -11,6 +11,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { SavingsAccountComponent } from './savings-account/savings-account.component';
 import { DdaAccountComponent } from './dda-account/dda-account.component';
 import { CreditComponent } from './credit/credit.component';
+import { CreditscoreComponent } from './creditscore/creditscore.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"login",pathMatch:"full"},
@@ -22,7 +23,7 @@ const routes: Routes = [
   {path:"credit/:id", component: CreditComponent},
   {path:"transactions/:id",component:TransactionlistComponent},
   {path: "add-transaction", component:AddtransactionComponent},
-  // {path:"creditscore/:id",component:},
+  {path:"creditscore/:id",component: CreditscoreComponent},
   {path:"rewards/:id",component:RewardsComponent},
   {path:"aboutus/:id", component:AboutusComponent},
   {path:"contactus/:id", component:ContactusComponent}

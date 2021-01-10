@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 import com.retailBanking.accountsService.Exceptions.ExceptionImpl;
 import com.retailBanking.accountsService.Models.AccountsModel;
 import com.retailBanking.accountsService.Models.CreditCardModel;
+import com.retailBanking.accountsService.Models.CreditCardModelLite;
 import com.retailBanking.accountsService.Repository.CreditCardRepository;
+import com.retailBanking.accountsService.Repository.CreditCardRepositoryLite;
 import com.retailBanking.accountsService.Repository.AccountRepository;
 
 @Service
@@ -22,7 +24,10 @@ public class AccountRecordServiceImpl implements AccountRecordService {
 
 	@Autowired
 	CreditCardRepository crepo;
-
+	
+	@Autowired
+	CreditCardRepositoryLite crepoLite;
+	
 	@Autowired
 	ExceptionImpl exception;
 
@@ -62,15 +67,7 @@ AccountsModel data = repo.getAccountDetailsByAccountNo(accountNo);
 		return data;
 	}
 
-	@Override
-	public List<CreditCardModel> getCreditCardDetatils(long accountNo) throws Exception {
-		List<CreditCardModel> data = crepo.getCreditCardDetatils(accountNo);
-        System.out.println("Credit");
-		if (data.isEmpty())
-			exception.noCreditCardFound();
-
-		return data;
-	}
+	
 
 	@Override
 	public List<AccountsModel> getAllAccountsList(Double id) {
@@ -79,11 +76,7 @@ AccountsModel data = repo.getAccountDetailsByAccountNo(accountNo);
 		return list;
 	}
 
-	@Override
-	public CreditCardModel getCreditCard(Long accNo) {
 	
-		return crepo.getCreditCard(accNo);
-	}
 
 	@Override
 	@Transactional
@@ -96,6 +89,18 @@ AccountsModel data = repo.getAccountDetailsByAccountNo(accountNo);
 	public void saveAccountAfterTransaction(AccountsModel account) {
 		repo.save(account);
 		
+	}
+
+	@Override
+	public List<CreditCardModelLite> getCreditCardNumbers(Double id) {
+	
+		return crepoLite.getCreditCardNumbers(id);
+	}
+
+	@Override
+	public List<CreditCardModel> getCreditCardDetails(Long cardnumber) {
+	
+		return crepo.getCreditCardDetails(cardnumber);
 	}
 
 }

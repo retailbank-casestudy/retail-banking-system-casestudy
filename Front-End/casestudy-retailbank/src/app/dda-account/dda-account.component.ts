@@ -8,7 +8,7 @@ import { RestapiService } from '../restapi.service';
   styleUrls: ['./dda-account.component.css']
 })
 export class DdaAccountComponent implements OnInit {
-  userId : any = 1;
+  userId : any;
   accSelected : String="DDA";
   details : any;
   transactiondetails : any;
@@ -26,7 +26,7 @@ export class DdaAccountComponent implements OnInit {
     console.log("type of account selected = " +this.accSelected);
     this.details=null;
     this.transactiondetails=null;
-    this._service.fetchListForAccountType(this.accSelected).subscribe(val => this.accountnames=val);
+    this._service.fetchListForAccountType(this.accSelected, this.userId).subscribe(val => this.accountnames=val);
     }
     onSelect(accno : any){
       console.log(accno);

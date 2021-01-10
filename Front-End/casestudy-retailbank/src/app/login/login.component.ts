@@ -12,7 +12,11 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   message: any;
-  
+  hide=true;
+  errorMessage='invalid Credentials';
+  invalidLogin: boolean;
+  invalidlogin=false;
+  flag:any;
 
   constructor(private service: RestapiService,private router:Router) { }
 
@@ -24,6 +28,16 @@ export class LoginComponent implements OnInit {
     resp.subscribe(data => {
       this.message = data;
      this.router.navigate(["/home/"+this.message]);
-    });
+     this.invalidlogin=false;
+    }, 
+    error=>{
+      console.log(error);
+      this.invalidLogin=true;
+      alert ("invalid username or password");
+    }
+    
+    );
+
+
   }
 }

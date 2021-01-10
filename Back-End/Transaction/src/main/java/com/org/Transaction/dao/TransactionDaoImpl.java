@@ -23,7 +23,7 @@ public class TransactionDaoImpl implements TransactionDao{
 	private BeneficiaryRepository beneficiaryRepo;
 	
 	public List<Transaction> getAllTransactions(){
-		return repo.findAll();
+		return repo.allTransactions();
 	}
 	
 	public void saveTransactions(List<Transaction> list) {

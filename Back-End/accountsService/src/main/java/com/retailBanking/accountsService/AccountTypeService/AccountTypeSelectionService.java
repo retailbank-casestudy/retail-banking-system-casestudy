@@ -8,6 +8,7 @@ public interface AccountTypeSelectionService {
 
 	
 	
-	List<AccountsModel> getAccountType(String type);
+	
+	List<AccountsModel> getAccountType(String type, Double userID);
 
 }

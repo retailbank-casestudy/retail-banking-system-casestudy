@@ -17,9 +17,16 @@ public class CreditCardModel {
 	@Id
 	@Column(name = "creditcardnumber")
 	private long creditCardNumber;
+@Column(name="userid")
+private Double userId;
 
-	@Column(name = "accountno")
-	private long accountNo;
+	public Double getUserId() {
+	return userId;
+}
+
+public void setUserId(Double userId) {
+	this.userId = userId;
+}
 
 	@Column(name = "creditlimit")
 	private BigInteger creditLimit;
@@ -29,7 +36,7 @@ public class CreditCardModel {
 
 	@Column(name = "paymentduedate")
 	@JsonFormat(pattern = "dd-MM-yyyy")
-	private LocalDate paymentDueDate;
+	private LocalDate paymentDueDate; 
 
 	@Column(name = "minimumpayment")
 	private BigInteger minimumPayment;
@@ -42,13 +49,7 @@ public class CreditCardModel {
 		this.creditCardNumber = creditCardNumber;
 	}
 
-	public long getAccountNo() {
-		return accountNo;
-	}
-
-	public void setAccountNo(long accountNo) {
-		this.accountNo = accountNo;
-	}
+	
 
 	public BigInteger getCreditLimit() {
 		return creditLimit;
@@ -86,15 +87,17 @@ public class CreditCardModel {
 		super();
 	}
 
-	public CreditCardModel(long creditCardNumber, long accountNo, BigInteger creditLimit,
-			BigInteger avaliableLimit, LocalDate paymentDueDate, BigInteger minimumPayment) {
+	public CreditCardModel(long creditCardNumber, Double userId, BigInteger creditLimit, BigInteger avaliableLimit,
+			LocalDate paymentDueDate, BigInteger minimumPayment) {
 		super();
 		this.creditCardNumber = creditCardNumber;
-		this.accountNo = accountNo;
+		this.userId = userId;
 		this.creditLimit = creditLimit;
 		this.avaliableLimit = avaliableLimit;
 		this.paymentDueDate = paymentDueDate;
 		this.minimumPayment = minimumPayment;
 	}
+
+	
 
 }
