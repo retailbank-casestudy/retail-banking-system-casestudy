@@ -31,7 +31,7 @@ export class CreditComponent implements OnInit {
     this.details=null;
     this.transactiondetails=null;
    
-    this._service.fetchListForCreditAccountType().subscribe(val => this.creditNumbers=val);
+    this._service.fetchListForCreditAccountType(this.userId).subscribe(val => this.creditNumbers=val);
     }
     
 

@@ -9,7 +9,7 @@ import { RestapiService } from '../restapi.service';
 })
 export class SavingsAccountComponent implements OnInit {
 
-  userId : any;
+  userId : any = 1;
   accSelected : String="savings";
   details : any;
   transactiondetails : any;

@@ -1,59 +1,278 @@
-<h1>Welcome!!</h1>    
-<div>
-     <input type="button" class="btn btn-primary" (click)="handleClick()" value="Add Transaction">
-</div>
-
+<nav class="navbar navbar-expand-lg sticky-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" routerLink = "/home/{{userId}}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" routerLink = "/aboutus/{{userId}}">About Us</a>
+        <a class="nav-item nav-link" routerLink = "/contactus/{{userId}}">Contact Us</a>
+        <div>
+        <a class="btn" style="background-color: white; margin-left:71rem;" routerLink = "/login" >Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 <div class="filter">
-<div class="row">
+<h1>Welcome!!</h1>
+<table style="margin-left: auto;margin-right: auto" class="table1">
+    <tr>
+<th>
+    <label for="account">Account Number : </label>
+</th>
+<th>
+    <label for="payType">Transaction Type : </label>
+</th>
+<th>
+    <label >Start Date :</label>
+</th>
+<th>
+    <label>End Date :</label>
+</th>
+    </tr>
+    <tr>
+    <td>
+            <div>
+               
+                <select [(ngModel)]="accNo" (click)="onClickGetAcc()">
+                    <option value="SELECT">SELECT</option>
+                    <option *ngFor="let a of  accDetails">{{a}}</option>
+                </select>
+            </div></td>
+
+          <td> 
+            <div>
+               
+                <select [(ngModel)]="paidselected" (click)="onClickPaidUsing()">
+                    <option value="ALL">ALL</option>
+                    <option *ngFor="let pu of paidusing">{{pu}}</option>
+                </select>
+
+            </div></td>
       
-        <div class="col-3">
-            <label for="payType">Paid Using : </label>
+          <td> 
             <div>
-            <select  [(ngModel)] = "paidselected" (click) = "onClickPaidUsing()">
-                <option *ngFor="let pu of paidusing">{{pu}}</option>
-            </select>
-        </div>
-        </div>
-        
-        <form >
-        
-            Start Date :
-            <div>
-                <input type="date" name="startdate" [(ngModel)] = "startdate">
-            </div> 
-       
-        
-            End Date :
-            <div>
-                <input type="date" name="enddate" [(ngModel)] = "enddate">
-            </div> 
-
-            <div class="getbtn" style="text-align: center;">
-                <input type="submit" value="Get Details" class="btn btn-primary" (click)="onDate()">
-        </div>
-            </form>
-            <div class="getbtn" style="text-align: center;">
-                <input type="submit" value="Reset" class="btn btn-primary" (click)="get()">
-       
+                
+                <input type="date" name="startdate" [(ngModel)]="startdate">
+            </div></td>
 
 
-<div>
-    <table *ngIf="transDetails" class="table">
-        <thead>
+          <td>  
+            <div>
+                
+                <input type="date" name="enddate" [(ngModel)]="enddate" >
+            </div></td></tr>
             <tr>
-                <th>Transaction ID</th><th>Account Number</th>
-                <th>Beneficiary Acc Number</th><th>Amount</th><th>Date</th><th>Type</th>
+            <td></td>
+            <td></td>
+            
+            
+            <td>
+                 <div class="getbtn" style="text-align: center;">
+                    <input type="submit" value="Get Transactions" class="btn btn-primary" (click)="onDate()">
+        </div>
+            </td>
+           <td><div class="getbtn" style="text-align: center;">
+                <input type="submit" value="Reset Filters"  class="btn btn-primary" (click)="reset()">
+        </div></td> 
             </tr>
-        </thead>
-     
-        <tbody>
-            <tr *ngFor="let d of transDetails">
-                <td>{{d.transactionId}}</td><td>{{d.accountNumber}}</td>
-                <td>{{d.beneficiaryAccountNumber}}</td><td>{{d.transactionAmount}}</td><td>{{d.transactionDate}}</td><td>{{d.transactionType}}</td>
-            </tr>
-        </tbody>
+            
+</table>
+
+       
+
+   
+
+
+        <div>
+            
+            <table style="margin-left: auto;margin-right: auto" *ngIf="transDetails" class="table">
+
+                <div class="listtable">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Account Number</th>
+                        <th>Beneficiary Acc Number</th>
+                        <th>Transaction Amount</th>
+                        <th>Transaction Date</th>
+                        <th>Transaction Type</th>
+                    </tr>
+                </thead>
+                <div *ngIf="transDetails">
+                    <div class="error" *ngIf="transDetails.length===0">
+                        No Records Found!
+                    </div>
+                </div>
+
+                <tbody>
+
+                    <tr *ngFor="let d of transDetails">
+                        <td>{{d.transactionId}}</td>
+                        <td>{{d.accountNumber}}</td>
+                        <td>{{d.beneficiaryAccountNumber}}</td>
+                        <td>{{d.transactionAmount}}</td>
+                        <td>{{d.transactionDate}}</td>
+                        <td>{{d.transactionType}}</td>
+                    </tr>
+                </tbody>
+            </div>
+
+            </table>
+
+
+        </div>
+        <!-- <div>
+            <input style="float:right" type="button" class="btn btn-primary" (click)="handleClick()" value="">
+        </div>-->
+    </div>
+
+    <!--Footer-->
+  <div class="footer1">
+    <footer class="page-footer font-small unique-color-dark">
+
+      <div style="background-color:  #15008b; color: white;">
+        <div class="container">
     
-    </table>
-</div>
-
-
+          <!-- Grid row-->
+          <div class="row py-4 d-flex align-items-center">
+    
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+              <h6 class="mb-0">Get connected with us on social networks!</h6>
+            </div>
+            <!-- Grid column -->
+    
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-7 text-center text-md-right">
+    
+              <!-- Facebook -->
+              <a class="fb-ic">
+                <mdb-icon fab icon="facebook" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!-- Twitter -->
+              <a class="tw-ic">
+                <mdb-icon fab icon="twitter" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!-- Google +-->
+              <a class="gplus-ic">
+                <mdb-icon fab fab icon="google-plus" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!--Linkedin -->
+              <a class="li-ic">
+                <mdb-icon fab icon="linkedin" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!--Instagram-->
+              <a class="ins-ic">
+                <mdb-icon fab icon="instagram" class="white-text mr-4"></mdb-icon>
+              </a>
+    
+            </div>
+            <!-- Grid column -->
+    
+          </div>
+          <!-- Grid row-->
+    
+        </div>
+      </div>
+    
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left mt-5">
+    
+        <!-- Grid row -->
+        <div class="row mt-3">
+    
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+    
+            <!-- Content -->
+            <h6 class="text-uppercase font-weight-bold">CTS Retail Bank</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              The most trustworthy and the scure bank in US. Make everything digital.
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Services</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <a routerLink = "/accounts/{{userId}}">Accounts</a>
+            </p>
+            <p>
+              <a routerLink = "/transactions/{{userId}}">Transactions</a>
+            </p>
+            <p>
+              <a routerLink = "/creditscore/{{userId}}">Credit Score</a>
+            </p>
+            <p>
+              <a routerLink = "/rewards/{{userId}}">Rewards</a>
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <a href="#!">Your Account</a>
+            </p>
+            <p>
+              <a href="#!">Become an Affiliate</a>
+            </p>
+            <p>
+              <a href="#!">Shipping Rates</a>
+            </p>
+            <p>
+              <a href="#!">Help</a>
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <mdb-icon fas icon="home" class="mr-3"></mdb-icon> New York, NY 10012, US
+            </p>
+            <p>
+              <mdb-icon fas icon="envelope" class="mr-3"></mdb-icon> cts-retailbank@example.com
+            </p>
+            <p>
+              <mdb-icon fas icon="phone" class="mr-3"></mdb-icon> + 01 234 567 88
+            </p>
+            <p>
+              <mdb-icon fas icon="print" class="mr-3"></mdb-icon> + 01 234 567 88
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row -->
+    
+      </div>
+      <!-- Footer Links -->
+    
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="http://localhost:4200/">cts-retailbank.com</a>
+      </div>
+      <!-- Copyright -->
+    
+    </footer>    
+  </div>
+  <!-- Footer -->

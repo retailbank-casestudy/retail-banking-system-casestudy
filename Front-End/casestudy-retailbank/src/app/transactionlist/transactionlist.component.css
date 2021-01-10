@@ -1,7 +1,110 @@
+.navbar { 
+    background-color : #15008b; 
+  } 
+  
+  .navbar .navbar-brand, 
+  .navbar .navbar-text,
+  .nav-item { 
+      color : white; 
+  }
+
 .filter{
     padding: 30px;
+    background-color: #c7dafd ;
 }
 .getbtn{
     padding-top: 15px;
+    
+}
+.table{
+    width: 1210px;
+    table-layout: auto;
+    border-collapse: collapse;
 }
 
+
+.table tbody{
+  display:block;
+  width: 100%;
+  overflow: auto;
+  height: 280px;
+}
+
+ .table thead tr {
+   display: block;
+}
+
+.table thead {
+  background: #100164;
+  color:#fff;
+  padding:10px;
+  line-height: 15px;
+  font-size: 1.1em;
+  
+}
+
+.table th, .table td {
+    padding: 20px;
+    margin:auto;
+    text-align: center;
+    width: 200px;
+  }
+.error{
+  font-size: larger;
+  color: gray;
+  font-weight: bold;
+  padding-top: 20px;
+  text-align: center;
+}
+.table1{
+  
+  padding: 15px;
+  width: 80%;
+  text-align: center;
+  margin-bottom: 35px;
+
+}
+.listtable{
+  background-color: white;
+}
+
+/* Footer */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+  }
+  
+  #footer {
+    padding: 7% 15%;
+    text-align: center;
+  }
+  /*
+  .row py-4 d-flex align-items-center{
+    padding : 10%;
+  }
+  
+  .fb-ic {
+    padding-right: 2%;
+    width: 10%;
+  }
+  
+  .tw-ic{
+   padding-right: 2%; 
+  }
+  
+  .gplus-ic{
+    padding-right: 2%;
+  }
+  
+  .li-ic{
+    padding-right: 2%;
+  }
+  .ins-ic{
+    padding-right: 2%;
+  }*/
+  

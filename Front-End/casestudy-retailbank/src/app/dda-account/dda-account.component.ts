@@ -8,7 +8,7 @@ import { RestapiService } from '../restapi.service';
   styleUrls: ['./dda-account.component.css']
 })
 export class DdaAccountComponent implements OnInit {
-  userId : any;
+  userId : any = 1;
   accSelected : String="DDA";
   details : any;
   transactiondetails : any;
