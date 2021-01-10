@@ -30,4 +30,7 @@ export class RewardsComponent implements OnInit {
     
   }
 
+  refresh(){
+    window.location.reload();
+  }
 }

@@ -1,56 +1,21 @@
 <nav class="navbar navbar-expand-lg sticky-top">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" routerLink = "/home/{{id}}">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">About Us</a>
-      <a class="nav-item nav-link" href="#">Contact Us</a>
-      <div>
-      <a class="btn" style="background-color: white; margin-left:71rem;" (click) = "logout()" >Logout</a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-  <div class="body">
-      <br/><br/>
-
-      <div class="card">
-        <div class="card-body" style="color: #15008b;">
-          <img style="float: left; margin-left: 6rem;" height="100px" width="130px" src="/assets/images/wallet.jpg">
-          <br>
-          <h3>Wallet Amount</h3>
-          <h5>{{wallet.walletAmount}}</h5>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" routerLink = "/home/{{id}}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" routerLink = "/aboutus/{{id}}">About Us</a>
+        <a class="nav-item nav-link" routerLink = "/contactus/{{id}}">Contact Us</a>
+        <div>
+        <a class="btn" style="background-color: white; margin-left:71rem;" routerLink = "/login" >Logout</a>
         </div>
       </div>
-
-      
-
-      <br/><br/>
-    <div class="container-list" style="background-color: #15008b;">
-        <table class="table-custom" style="font-size: 12px;">
-            <thead>
-                <tr>
-                    <th>Reward Name</th>
-                    <th>Reward Amount</th>
-                    <th>Expiry Date</th>
-                    <th>Claim Rewards</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let r of rewards">
-                    <td>{{r.rewardName}}</td>
-                    <td>{{r.rewardAmount}}</td>
-                    <td>{{r.rewardExpiryDate}}</td>
-                    <td><a class="btn" style="background-color: white;
-                      color: #000;" (click) = "claimRewards(r.rewardId); refresh();">Claim Rewards</a></td>
-                </tr>
-            </tbody>
-          </table>
     </div>
-<br/><br/><br/><br/>
+  </nav>
+
+  <div class="body">
+
   </div>
 
   <!--Footer-->
@@ -199,6 +164,6 @@
       </div>
       <!-- Copyright -->
     
-    </footer>
-    </div>
-    <!-- Footer -->
+    </footer>    
+  </div>
+  <!-- Footer -->

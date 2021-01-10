@@ -1,0 +1,54 @@
+.navbar { 
+    background-color : #15008b; 
+  } 
+  
+  .navbar .navbar-brand, 
+  .navbar .navbar-text,
+  .nav-item { 
+      color : white; 
+  }
+
+  .body{
+    background-color: #c7dafd;
+    
+  }
+
+  /* Footer */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+  }
+  
+  #footer {
+    padding: 7% 15%;
+    text-align: center;
+  }
+  /*
+  .row py-4 d-flex align-items-center{
+    padding : 10%;
+  }
+  
+  .fb-ic {
+    padding-right: 2%;
+    width: 10%;
+  }
+  
+  .tw-ic{
+   padding-right: 2%; 
+  }
+  
+  .gplus-ic{
+    padding-right: 2%;
+  }
+  
+  .li-ic{
+    padding-right: 2%;
+  }
+  .ins-ic{
+    padding-right: 2%;
+  }*/

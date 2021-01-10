@@ -1,0 +1,331 @@
+
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" routerLink = "/home/{{userId}}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" routerLink = "/aboutus/{{userId}}">About Us</a>
+        <a class="nav-item nav-link" routerLink = "/contactus/{{userId}}">Contact Us</a>
+        <div>
+        <a class="btn" style="background-color: white; margin-left:71rem;" routerLink = "/login" >Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<section class="title">
+    <div class="row">
+        <div class="col-lg-8">
+            <h3 style="color: green; text-align: center;">
+                Welcome to the Saving Accounts part of ICC Bank!!
+            </h3>
+        </div>
+        <div class="col-lg-4">
+            <button style="float: right;" type="button" class="btn btn-success" (click)="handleAccount()">Accounts</button>
+        </div>
+    </div>
+</section>
+
+<section id="main" style="background-color: tomato; color: white;">
+    <div class="container-fluid-savings">
+    <div class="row">
+        <div class = "col-lg-6">
+            <h2 style="color: gray;"> Savings Accounts</h2>
+            <p>Savings Account at ICC Bank is uniquely designed for you to achieve
+                your financial goals. We provide the optimum solution as we understand how
+                important it is for you to manage your money efficiently.
+                </p>
+        </div>
+        <div class="col-lg-6">
+            <img class="title-image" src="assets/images/savings.jpg" 
+            alt="account-image">
+          </div>
+    </div>
+</div>
+</section>
+
+
+<section id="function">
+    <div class="container-fluid buttons">
+      
+          <div class="button1">
+              <button type="button" class="btn btn-outline-primary btn-lg download" (click)="handleSavings();typeOfAccountSelected()">Savings</button>
+          </div>
+          <div class="button2">
+              <button type="button" class="btn btn-outline-primary btn-lg download" (click)="handleDDA();typeOfAccountSelected()">Demand Deposit Accounts</button>
+          </div>
+          <div class="button3">
+              <button type="button" class="btn btn-outline-primary btn-lg download" (click)="handleCredit();typeOfAccountSelected()">Credit</button>
+          </div>
+      
+   </div>
+    
+</section>
+
+<section id="savings-data">
+    <div class="container-fluid-data">
+        
+        
+            
+               
+              <cdk-virtual-scroll-viewport itemSize="3" class="viewport">
+                  
+                    <mat-card *cdkVirtualFor = "let ac of accountnames" (click)="onSelect(ac.accountNo)" (click)="handleClick(ac.accountNo)" >
+                 
+                        <mat-card-content>{{ac.accountNickName}}<b>(Balance-{{ac.accountBalance}})</b></mat-card-content>
+                        
+                    </mat-card>
+                    
+                    <button class = "viewmore" (click) = "onViewMore()">View more</button>
+                </cdk-virtual-scroll-viewport>
+            
+           
+
+                <table *ngIf="details" class="detailstable">
+                    
+                    <tr>
+                        <th>Account number</th> <td>{{details.accountNo}}</td></tr>
+                      <tr>  <th>Balance</th><td>{{details.accountBalance}}</td></tr>
+                     <tr>  <th>Type</th><td>{{details.accountType}}</td></tr>
+                    <tr>    <th>Nick Name</th> <td>{{details.accountNickName}}</td></tr>
+                   
+                   
+               
+            
+            </table>
+                 
+              
+    
+            <div *ngIf="(transactiondetails)?.length" class="recentTransactions">Recent Transactions</div>
+            <div *ngIf="(transactiondetails)?.length==0"class="transactiontable">Sorry No Transactions Data Found</div>
+            
+            <div >
+                <table *ngIf="(transactiondetails)?.length>0"  class="transactiontable">
+              
+                        <tr>
+                            <th scope="col">Receipt ID</th><td  *ngFor = "let td of transactiondetails">{{td.transactionId}}</td></tr>
+                           <tr> <th scope="col">Amount</th><td *ngFor = "let td of transactiondetails">{{td.transactionAmount}}</td></tr>
+                            <tr><th scope="col">Date</th><td *ngFor = "let td of transactiondetails">{{td.transactionDate}}</td></tr>
+                        
+                         
+                </table>
+                
+                <button *ngIf="(transactiondetails)?.length>0" class = "viewmoretransactions" (click) = "onViewMoreTransactions()">View more</button>
+          
+              </div>
+      </div>
+      
+</section>
+
+<section id="features-1">
+<div class="container-fluid-1">
+<h3 style="text-align: center;color: navy;">Reasons To Bank With Us</h3>
+<p style="text-align: center; color: gray;">Accessing your savings account is easy and convenient with our wide network of 1300+ branches and 24x7 ATMs across the country. 
+    Your savings account is always at your fingertips with our best in class net banking feature, SMS banking and our award winning mobile banking app for all your online transactions. </p>
+</div>
+</section>
+
+
+
+
+<section id="testimonials">
+
+    <div id="testimonial-carousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#testimonial-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#testimonial-carousel" data-slide-to="1"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <h2 style="color: gray;">"As a small, local business, it is very important to us to bank locally! You can't beat the experience at 
+              ICC Bank - everyone is so friendly, the service is speedy, and they've always been there for us.
+              </h2>
+          <img class="testimonial-image" src="assets/images/plant.jpg" alt="dog-profile">
+          <em>Pebbles, New York</em>
+        </div>
+        <div class="carousel-item">
+          <h2 class="testimonial-text" style="color: gray;">"I am so happy to have found a bank that understands our vision.
+               Thank you ICC Bank for believing in my business and supporting our expansion."</h2>
+          <img class="testimonial-image" src="assets/images/ceo3.jpg" alt="lady-profile">
+          <em>Beverly, GBR</em>
+        </div>
+        <div class="carousel-item">
+            <h2 class="testimonial-text" style="color: gray;">"Working with ICC Bank for the last 15 years has allowed us to grow our business and expand relationships with our customers. 
+                As a family owned business, I appreciate the connections and support my local bank has to offer."</h2>
+            <img class="testimonial-image" src="assets/images/ceo2.jpg" alt="lady-profile">
+            <em>Kim Johnson, Pittsburgh</em>
+          </div>
+  
+
+      </div>
+      <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="mission">
+      <div class="container-fluid-2">
+          <h1 style="text-align: center;">Our Mission</h1>
+          <h4 style="text-align: center;">We are committed to our community by building lasting relationships and being a 
+              trusted partner that together empowers growth and economic vitality.</h4>
+      </div>
+  </section>
+
+  <!--Footer-->
+<div class="footer1">
+    <footer class="page-footer font-small unique-color-dark">
+  
+      <div style="background-color:  #15008b; color: white;">
+        <div class="container">
+    
+          <!-- Grid row-->
+          <div class="row py-4 d-flex align-items-center">
+    
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+              <h6 class="mb-0">Get connected with us on social networks!</h6>
+            </div>
+            <!-- Grid column -->
+    
+            <!-- Grid column -->
+            <div class="col-md-6 col-lg-7 text-center text-md-right">
+    
+              <!-- Facebook -->
+              <a class="fb-ic">
+                <mdb-icon fab icon="facebook" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!-- Twitter -->
+              <a class="tw-ic">
+                <mdb-icon fab icon="twitter" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!-- Google +-->
+              <a class="gplus-ic">
+                <mdb-icon fab fab icon="google-plus" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!--Linkedin -->
+              <a class="li-ic">
+                <mdb-icon fab icon="linkedin" class="white-text mr-4"></mdb-icon>
+              </a>
+              <!--Instagram-->
+              <a class="ins-ic">
+                <mdb-icon fab icon="instagram" class="white-text mr-4"></mdb-icon>
+              </a>
+    
+            </div>
+            <!-- Grid column -->
+    
+          </div>
+          <!-- Grid row-->
+    
+        </div>
+      </div>
+    
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left mt-5">
+    
+        <!-- Grid row -->
+        <div class="row mt-3">
+    
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+    
+            <!-- Content -->
+            <h6 class="text-uppercase font-weight-bold">CTS Retail Bank</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              The most trustworthy and the scure bank in US. Make everything digital.
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Services</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <a routerLink = "/accounts/{{userId}}">Accounts</a>
+            </p>
+            <p>
+              <a routerLink = "/transactions/{{userId}}">Transactions</a>
+            </p>
+            <p>
+              <a routerLink = "/creditscore/{{userId}}">Credit Score</a>
+            </p>
+            <p>
+              <a routerLink = "/rewards/{{userId}}">Rewards</a>
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <a href="#!">Your Account</a>
+            </p>
+            <p>
+              <a href="#!">Become an Affiliate</a>
+            </p>
+            <p>
+              <a href="#!">Shipping Rates</a>
+            </p>
+            <p>
+              <a href="#!">Help</a>
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <mdb-icon fas icon="home" class="mr-3"></mdb-icon> New York, NY 10012, US
+            </p>
+            <p>
+              <mdb-icon fas icon="envelope" class="mr-3"></mdb-icon> cts-retailbank@example.com
+            </p>
+            <p>
+              <mdb-icon fas icon="phone" class="mr-3"></mdb-icon> + 01 234 567 88
+            </p>
+            <p>
+              <mdb-icon fas icon="print" class="mr-3"></mdb-icon> + 01 234 567 88
+            </p>
+    
+          </div>
+          <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row -->
+    
+      </div>
+      <!-- Footer Links -->
+    
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="http://localhost:4200/">cts-retailbank.com</a>
+      </div>
+      <!-- Copyright -->
+    
+    </footer>    
+  </div>
+  <!-- Footer -->
+    

@@ -1,12 +1,68 @@
+
+
+.navbar { 
+  background-color : #15008b; 
+} 
+
+.navbar .navbar-brand, 
+.navbar .navbar-text,
+.nav-item { 
+    color : white; 
+}
+
+
+
 .body{
-    background: linear-gradient(0.15turn, #808080, #ececec, #808080);
+    background: #c7dafd;
   }
 
   .card{
       margin-left: 25%;
       margin-right: 25%;
       text-align: center;
+      border-radius: 35px;
   }
+
+  .container-list{
+    margin: 0 9%;
+  }
+
+  table{
+    color: white;
+    text-align: center;
+    
+  }
+  .table-custom{
+    border-collapse: collapse;
+    
+      margin: 25px 0;
+      min-width: 78.2rem;
+      min-height: 320px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .table-custom thead tr{
+    background-color:white;
+      color: black;
+  }
+  
+  .table-custom th,
+  .table-custom td {
+      padding: 7px 10px;
+  }
+  
+  .table-custom tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .table-custom tbody tr:nth-of-type(even) {
+    background-color:  #2a5fc2;
+  }
+  
+  .table-custom tbody tr:last-of-type {
+    border-bottom: 2px solid  #c7dafd;
+  }
+
 
   /* Footer */
 

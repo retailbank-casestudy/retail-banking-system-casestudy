@@ -56,60 +56,6 @@ fetchRewards(userid :any) : Observable<any>{
     return  this.http.get("http://localhost:8919/rewards/"+userid);
 }
 
-
-
-
-fetchList(  accSelected:String ) : Observable<any>{
-    console.log(accSelected);
-    this.id=1;
-    let accountType = accSelected.toLowerCase();
-    console.log(accountType);
-    
-   let uri = 'http://localhost:8081/defaultAccount/?type='+accountType+'&id='+this.id;
-console.log("here");
-   return this.http.get(uri);
-   
-  }
-
-  fetchListForAccountType(  accSelected:String ) : Observable<any>{
-   console.log(accSelected);
-   this.id=1;
-   let accountType = accSelected.toLowerCase();
-   console.log(accountType);
-   
-  let uri = 'http://localhost:8081/accountType/?type='+accountType+'&id='+this.id;
-console.log("here");
-  return this.http.get(uri);
-  
- }
-
- fetchAllAccounts(){
-
-   let uri = 'http://localhost:8081/viewMore';
-  
-      return this.http.get(uri);
-
- }
-  
-
-  fetchAccountDetails(accno :any) : Observable<any> {
-  let number = accno.toString();
-   let uri = 'http://localhost:8081/getSpecificAccount/?accno='+number;
-  return this.http.get(uri);
-  }
-
- fetchCreditDetails() : Observable<any> {
-   let uri = `http://localhost:8081/getCreditCardDetatils`;
-   return this.http.get(uri);
- }
- fetchTransaction(accno : any) : Observable<any> {
-   let number = accno.toString();
-   let uri = `http://localhost:8081/getAccountTransactionData/?accNo=`+number;
-   return this.http.get(uri);
- }
- 
-
-
  fetchWallet(userid :any) : Observable<any>{
   return  this.http.get("http://localhost:8067/rewards/getwalletdeatils/customerId/"+userid);
 }
@@ -123,6 +69,70 @@ claimRewardsFunction(userid : any, rewardid : any) : Observable<any>{
   return this.http.get("http://localhost:8067/rewards/claimreward/"+userid+"/rewardid/"+rewardid);
 }
 
+
+
+//Accounts
+
+fetchList(  accSelected:String ) : Observable<any>{
+  console.log(accSelected);
+ 
+  let accountType = accSelected.toLowerCase();
+  console.log(accountType+"is secected in service");
+  console.log(this.id+"is secected in service");
+ let uri = 'http://localhost:8081/defaultAccount/?type='+accountType+'&id='+this.id;
+console.log("here");
+ return this.http.get(uri);
+ 
+}
+
+fetchListForAccountType(  accSelected:String) : Observable<any>{
+ let accountType = accSelected.toLowerCase();
+
+ console.log(this.id+"selected in  fetchListForAccountType service");
+let uri = 'http://localhost:8081/accountType/?type='+accountType+'&id='+this.id;
+
+return this.http.get(uri);
+
+}
+
+fetchAllAccounts(){
+
+ let uri = 'http://localhost:8081/viewMore';
+
+    return this.http.get(uri);
+
+}
+
+
+fetchAccountDetails(accno :any) : Observable<any> {
+let number = accno.toString();
+ let uri = 'http://localhost:8081/getSpecificAccount/?accno='+number;
+ 
+return this.http.get(uri);
+}
+
+fetchCreditDetails(creditNumber:any) : Observable<any> {
+ console.log(creditNumber.toString());
+ let uri = `http://localhost:8081/getCreditCardDetails?credno=`+creditNumber.toString();
+ return this.http.get(uri);
+}
+fetchTransaction(accno : any) : Observable<any> {
+ let number = accno.toString();
+ let uri = `http://localhost:8081/getAccountTransactionData/?accNo=`+number;
+ return this.http.get(uri);
+}
+
+fetchCreditcardTransaction(creditNumber:any) : Observable<any> {
+
+ let uri = `http://localhost:8081/getCreditCardTransactionDetails/?credno=`+creditNumber.toString();
+ return this.http.get(uri);
+}
+fetchListForCreditAccountType() {
+ console.log(this.id);
+
+ let uri = `http://localhost:8081/getCreditCardNumber/?userID=`+this.id;
+ return this.http.get(uri);
+}
 
 //Transactions
 

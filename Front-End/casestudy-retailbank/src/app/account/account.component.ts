@@ -8,59 +8,34 @@ import { RestapiService } from '../restapi.service';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
- userId : number | undefined = undefined;
- accounts : any = undefined;
- accSelected : string = "";
- accountnames : any = undefined;
- name : any = undefined;
- details : any = undefined;
- creditdetails : any = undefined;
- transactiondetails : any = undefined;
-  constructor(private _activatedRoute : ActivatedRoute, private _service : RestapiService) { }
+  userId : number | undefined = undefined;
+  accounts : any = undefined;
+  accSelected : string = "Savings";
+  
+  accountnames : any = undefined;
+  name : any = undefined;
+  details : any = undefined;
+  creditdetails : any = undefined;
+  transactiondetails : any = undefined;
+  messagec : String = "Sorry!!!!, No Credit Details for this Account";
+  messaget : String = "Sorry!!!!, No Transaction Details for this Account";
+  constructor(private _activatedRoute : ActivatedRoute, private _service : RestapiService, private _router : Router) { }
 
   ngOnInit(): void {
    this._activatedRoute.params.subscribe((key : Params) => this.userId = key.id);
 
-   this.accounts = [
-     "Savings","Checking"
-   ];
-
-   this.accSelected = "Savings";
- this.defaultAccountSelected();
-
   }
-  defaultAccountSelected(){
-  console.log(this.accSelected);
-this._service.fetchList(this.accSelected).subscribe(val => this.accountnames=val);
-}
-
-typeOfAccountSelected(){
-
-console.log("type of account")
-this.details=null;
-this.transactiondetails=null;
-this.creditdetails=null;
-this._service.fetchListForAccountType(this.accSelected).subscribe(val => this.accountnames=val);
-}
-
-onSelect(accno : any){
-  console.log(accno);
-  this.creditdetails = null;
- 
-this._service.fetchAccountDetails(accno).subscribe(val => this.details=val);
-}
-onClick(){
-this._service.fetchCreditDetails().subscribe(val => this.creditdetails=val);;
-}
-onViewMore(){
-  this._service.fetchAllAccounts().subscribe(val => this.accountnames=val);
-}
-
-
-handleClick(value : any){
-  console.log(value);
-
- this._service.fetchTransaction(value).subscribe((val) => this.transactiondetails=val);
-
-}
-}
+  handleSavings(){
+    console.log("savings Url");
+    
+  this._router.navigate(["savings/"+this.userId]);
+  }
+  handleDDA(){
+    console.log("DDA Url");
+  this._router.navigate(["dda/"+this.userId]);
+  }
+  handleCredit(){
+    console.log("Credit Url");
+  this._router.navigate(["credit/"+this.userId]);
+  }
+  }

@@ -5,8 +5,8 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-item nav-link active" routerLink = "/home/{{id}}">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="#">About Us</a>
-        <a class="nav-item nav-link" href="#">Contact Us</a>
+        <a class="nav-item nav-link" routerLink = "/aboutus/{{id}}">About Us</a>
+        <a class="nav-item nav-link" routerLink = "/contactus/{{id}}">Contact Us</a>
         <div>
         <a class="btn" style="background-color: white; margin-left:71rem;" (click) = "logout()" >Logout</a>
         </div>
@@ -62,7 +62,7 @@
             <div class="card-text">
               
               <table class="table-custom" style="font-size: 12px;">
-                <thead class="thead-light">
+                <thead>
                     <tr>
                         <th>AccName</th>
                         <th>AccType</th>
@@ -93,7 +93,7 @@
             <h5 class="card-title">TRANSACTIONS</h5>
             <div class="card-text">
               <table class="table-custom " style="font-size: 12px;">
-                <thead class="thead-light">
+                <thead>
                     <tr>
                         <th>TransId</th>
                         <th>TransDate</th>
@@ -177,7 +177,7 @@
             <h5 class="card-title">LOANS</h5>
             <div class="card-text">
               <table class="table-custom" style="font-size: 12px;">
-                <thead class="thead-light">
+                <thead>
                     <tr>
                         <th>LoanType</th>
                         <th>Interest</th>
@@ -230,7 +230,7 @@
       
       
     
-  </div>
+    </div>
   <br/><br/><br/>
   </div>
 
@@ -380,12 +380,11 @@
       </div>
       <!-- Copyright -->
     
-    </footer>
-    <!-- Footer -->
-    
+    </footer>    
   </div>
+  <!-- Footer -->
   
-
+<!-- View More Modal -->
   <div id="myModal" class="modal fade">
     <div class="modal-dialog modal-confirm">
       <div class="modal-content">

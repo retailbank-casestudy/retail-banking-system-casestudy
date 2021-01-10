@@ -15,6 +15,11 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RewardsComponent } from './rewards/rewards.component';
 import { AddtransactionComponent } from './addtransaction/addtransaction.component';
 import { TransactionlistComponent } from './transactionlist/transactionlist.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { CreditComponent } from './credit/credit.component';
+import { DdaAccountComponent } from './dda-account/dda-account.component';
+import { SavingsAccountComponent } from './savings-account/savings-account.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,12 @@ import { TransactionlistComponent } from './transactionlist/transactionlist.comp
     AccountComponent,
     RewardsComponent,
     AddtransactionComponent,
-    TransactionlistComponent
+    TransactionlistComponent,
+    AboutusComponent,
+    ContactusComponent,
+    CreditComponent,
+    DdaAccountComponent,
+    SavingsAccountComponent
   ],
   imports: [
     BrowserModule,

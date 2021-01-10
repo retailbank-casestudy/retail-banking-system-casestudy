@@ -1,9 +1,110 @@
+.navbar { 
+  background-color : #15008b; 
+} 
+
+.navbar .navbar-brand, 
+.navbar .navbar-text,
+.nav-item { 
+    color : white; 
+}
+
+
+.body{
+  overflow: hidden;
+}
 .container{
   display: flex;
 }
 
+h2{
+  font-family: "Montserrat-Bold";
+  font-size: 3rem;
+  line-height: 1.5;
+  color: white;
+}
 
-  .viewport {
+p{
+  text-align: justify;
+
+}
+.container-fluid{
+  padding: 5% 10% 12%;
+}
+.title-image {
+  width: 120%;
+  position: absolute;
+  left : 0%;
+  height: 150%;
+}
+.buttons{
+  left : 10%;
+}
+.button1{
+  top :90%;
+position: absolute;
+left: 30%;
+
+}
+.button2{
+  top :90%;
+  position: absolute;
+left: 42%;
+}
+.button3{
+  top :90%;
+  position: absolute;
+left: 58.8%;
+}
+
+
+.download {
+  margin: 5% 3% 5% 0;
+  left : 10%;
+}
+#features {
+  padding: 7% 15%;
+  background-color: #fff;
+  position: relative;
+}
+
+.feature-box {
+  text-align: center;
+  padding: 5%;
+}
+
+.icon {
+  color: tomato;
+  margin-bottom: 1rem;
+}
+
+.icon:hover {
+  color: #f3092c;
+}
+#testimonials {
+  text-align: center;
+  background-color: tomato;
+  color: #fff;
+}
+
+.carousel-item {
+  padding: 7% 15%;
+}
+
+.testimonial-image {
+  width: 45%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+.container-fluid-1{
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+}
+.container-fluid-2{
+  padding : 15% 30%;
+}
+.viewport {
     position: absolute;
     height: 65%;
     bottom: 50%;
@@ -107,48 +208,9 @@
 
   }
 
-  /* Footer */
 
-.footer {
-position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
-text-align: center;
-background-color: white;
-}
 
-#footer {
-padding: 7% 15%;
-text-align: center;
-}
-.row py-4 d-flex align-items-center{
-padding : 10%;
-}
 
-.fb-ic {
-padding-right: 2%;
-width: 10%;
-}
-
-.tw-ic{
-padding-right: 2%; 
-}
-
-.gplus-ic{
-padding-right: 2%;
-}
-
-.li-ic{
-padding-right: 2%;
-}
-.ins-ic{
-padding-right: 2%;
-}
-
-.footer1{
-padding-top: 700px;
-}
 
 .trxndetails{
 
@@ -162,3 +224,63 @@ padding-top: 700px;
     left: 57%;
 
 }
+
+.button1{
+  top :97.5%;
+position: absolute;
+left: 30%;
+ 
+}
+.button2{
+  top :96.2%;
+  position: absolute;
+left: 39%;
+width: 21%;
+align-items: center;
+ 
+}
+.button3{
+  top :97.55%;
+  position: absolute;
+left: 58.8%;
+}
+
+ /* Footer */
+
+ .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}
+
+#footer {
+  padding: 7% 15%;
+  text-align: center;
+}
+/*
+.row py-4 d-flex align-items-center{
+  padding : 10%;
+}
+
+.fb-ic {
+  padding-right: 2%;
+  width: 10%;
+}
+
+.tw-ic{
+ padding-right: 2%; 
+}
+
+.gplus-ic{
+  padding-right: 2%;
+}
+
+.li-ic{
+  padding-right: 2%;
+}
+.ins-ic{
+  padding-right: 2%;
+}*/

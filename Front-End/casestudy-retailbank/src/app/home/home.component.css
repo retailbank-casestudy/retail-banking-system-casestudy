@@ -51,12 +51,9 @@ background-color: white;
 #card-viewmore{
   margin-left: 30%;
   background-color: white;
-  color: #000;;
+  color: #000;
 }
 
-#card-viewmore :hover {
-  background-color: black;
-}
 
 table{
   color: white;
