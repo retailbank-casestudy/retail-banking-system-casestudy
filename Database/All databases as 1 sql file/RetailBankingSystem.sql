@@ -118,7 +118,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES (123,987,678,125,'2020-01-01','DEBITCARD','1'),(125,444333222111,456,500,'2021-01-01','CREDITCARD','1'),(456,444333222111,789,1000,'2020-05-06','DEBITCARD','1'),(856,444333222111,562,456,'2021-01-05','CREDITCARD','1'),(321,444333222111,123,7500,'2020-10-06','DEBITCARD','1'),(857,444333222111,789,1000,'2021-01-07','DEBIT','1');
+INSERT INTO `transaction` VALUES (125,444333222111,456,500,'2021-01-01','CREDITCARD','1'),(456,444333222111,789,1000,'2020-05-06','DEBITCARD','1'),(856,444333222111,562,456,'2021-01-05','CREDITCARD','1'),(321,444333222111,123,7500,'2020-10-06','DEBITCARD','1'),(857,444333222111,789,1000,'2021-01-07','DEBIT','1'),(200,444333222111,987654321,20,'2020-12-31','NEFT','1'),(104,444333222111,987654321,20,'2020-12-31','UPI','1'),(105,444333222222,987654321,20,'2019-12-31','NEFT','1'),(106,444333222222,987654321,20,'2020-12-31','UPI','1'),(107,444333222222,987654321,20,'2019-06-25','UPI','1'),(109,444333222222,987654321,20,'2020-05-15','NEFT','1'),(250,444333222222,982476321,1500,'2019-02-15','DEBITCARD','1'),(301,444333222111,9671354999,2500,'2021-01-08','CREDITCARD','1'),(151,444333222333,897654321,500,'2019-11-28','NEFT','1'),(111,444333222333,987654321,4000,'2020-01-10','UPI','1'),(112,444333222333,9671354999,1700,'2019-06-25','UPI','1'),(175,111222333444,987564122,500,'2019-10-06','CREDITCARD','1'),(114,444333222444,987654321,150,'2020-05-15','NEFT','1'),(115,444333222444,987654321,362,'2019-03-13','NEFT','1'),(116,444333222444,987654321,800,'2019-09-28','NEFT','1'),(117,444333222444,987654321,670,'2019-07-29','NEFT','1'),(118,444333222555,987654321,9000,'2019-08-18','NEFT','1'),(119,444333222555,987654321,870,'2019-10-12','DEBITCARD','1'),(120,444333222555,987654321,980,'2019-10-11','CREDITCARD','1'),(121,444333222555,987654321,320,'2018-12-30','UPI','1'),(122,444333222555,987654321,350,'2019-12-02','UPI','1');
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -131,7 +131,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-11  0:50:50
+-- Dump completed on 2021-01-11 13:08:59
 -- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
 -- Host: localhost    Database: acc_new
@@ -213,7 +213,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-11  0:50:50
+-- Dump completed on 2021-01-11 13:08:59
 -- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
 -- Host: localhost    Database: retailbanking
@@ -266,7 +266,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-11  0:50:50
+-- Dump completed on 2021-01-11 13:08:59
 -- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
 -- Host: localhost    Database: userdetails
@@ -318,7 +318,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-11  0:50:50
+-- Dump completed on 2021-01-11 13:08:59
 -- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
 -- Host: localhost    Database: rewards_db
@@ -360,7 +360,7 @@ CREATE TABLE `rewards` (
 
 LOCK TABLES `rewards` WRITE;
 /*!40000 ALTER TABLE `rewards` DISABLE KEYS */;
-INSERT INTO `rewards` VALUES (1,2,1000,'2021-02-12','credit card','active'),(1000,3,100,'2021-01-21','tansactionFor2000','active'),(1003,1,100,'2021-01-21','tansactionFor2000','inactive'),(1004,1,250,'2021-01-21','tansactionFor5000','inactive'),(1005,1,250,'2021-01-21','tansactionFor5000','inactive'),(1006,1,500,'2021-01-21','tansactionFor10000','inactive'),(1007,2,200,'2021-01-21','tansactionFor4000','active'),(1008,1,225,'2021-01-21','tansactionFor4500','inactive'),(1009,1,225,'2021-01-22','tansactionFor4500','inactive'),(1010,1,275,'2021-01-22','tansactionFor5500','inactive'),(1011,1,500,'2021-01-22','tansactionFor10000','inactive'),(1013,1,250,'2021-01-24','tansactionFor5000','inactive'),(1014,1,2750,'2021-01-24','tansactionFor55000','inactive'),(1015,1,3000,'2021-01-24','tansactionFor60000','inactive'),(1016,1,2100,'2021-01-24','tansactionFor42000','inactive'),(1017,1,28100,'2021-01-24','tansactionFor562000','inactive'),(1018,1,50,'2021-01-25','tansactionFor1000','inactive'),(1019,1,50,'2021-01-25','tansactionFor1000','inactive'),(1020,1,50,'2021-01-25','tansactionFor1000','inactive'),(1021,1,50,'2021-01-25','tansactionFor1000','inactive'),(1022,1,50,'2021-01-25','tansactionFor1000','inactive'),(1023,1,375,'2021-01-25','tansactionFor7500','inactive'),(1024,1,125,'2021-01-25','tansactionFor2500','inactive'),(1025,1,75,'2021-01-25','tansactionFor1500','inactive'),(1026,1,225,'2021-01-25','tansactionFor4500','inactive'),(1027,1,225,'2021-01-25','tansactionFor4500','inactive'),(1028,1,175,'2021-01-25','tansactionFor3500','active'),(1029,1,175,'2021-01-25','tansactionFor3500','inactive'),(1030,1,175,'2021-01-25','tansactionFor3500','active'),(1031,1,75,'2021-01-25','tansactionFor1500','active'),(1032,1,90,'2021-01-25','tansactionFor1800','active'),(1033,1,90,'2021-01-25','tansactionFor1800','inactive');
+INSERT INTO `rewards` VALUES (1,2,1000,'2021-02-12','credit card','active'),(1000,3,100,'2021-01-21','tansactionFor2000','active'),(1003,1,100,'2021-01-21','tansactionFor2000','inactive'),(1004,1,250,'2021-01-21','tansactionFor5000','inactive'),(1005,1,250,'2021-01-21','tansactionFor5000','inactive'),(1006,1,500,'2021-01-21','tansactionFor10000','inactive'),(1007,2,200,'2021-01-21','tansactionFor4000','active'),(1008,1,225,'2021-01-21','tansactionFor4500','inactive'),(1009,1,225,'2021-01-22','tansactionFor4500','inactive'),(1010,1,275,'2021-01-22','tansactionFor5500','inactive'),(1011,1,500,'2021-01-22','tansactionFor10000','inactive'),(1013,1,250,'2021-01-24','tansactionFor5000','inactive'),(1014,1,2750,'2021-01-24','tansactionFor55000','inactive'),(1015,1,3000,'2021-01-24','tansactionFor60000','inactive'),(1016,1,2100,'2021-01-24','tansactionFor42000','inactive'),(1017,1,28100,'2021-01-24','tansactionFor562000','inactive'),(1018,1,50,'2021-01-25','tansactionFor1000','inactive'),(1019,1,50,'2021-01-25','tansactionFor1000','inactive'),(1020,1,50,'2021-01-25','tansactionFor1000','inactive'),(1021,1,50,'2021-01-25','tansactionFor1000','inactive'),(1022,1,50,'2021-01-25','tansactionFor1000','inactive'),(1023,1,375,'2021-01-25','tansactionFor7500','inactive'),(1024,1,125,'2021-01-25','tansactionFor2500','inactive'),(1025,1,75,'2021-01-25','tansactionFor1500','inactive'),(1026,1,225,'2021-01-25','tansactionFor4500','inactive'),(1027,1,225,'2021-01-25','tansactionFor4500','inactive'),(1028,1,175,'2021-01-25','tansactionFor3500','inactive'),(1029,1,175,'2021-01-25','tansactionFor3500','inactive'),(1030,1,175,'2021-01-25','tansactionFor3500','inactive'),(1031,1,75,'2021-01-25','tansactionFor1500','inactive'),(1032,1,90,'2021-01-25','tansactionFor1800','inactive'),(1033,1,90,'2021-01-25','tansactionFor1800','inactive'),(1035,1,75,'2021-01-26','tansactionFor1500','inactive'),(1036,1,177,'2021-01-26','tansactionFor3540','active'),(1037,1,350,'2021-01-26','tansactionFor7000','active'),(1038,1,500,'2021-01-26','tansactionFor10000','active'),(1039,1,75,'2021-01-26','tansactionFor1500','active');
 /*!40000 ALTER TABLE `rewards` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -382,7 +382,7 @@ CREATE TABLE `seq` (
 
 LOCK TABLES `seq` WRITE;
 /*!40000 ALTER TABLE `seq` DISABLE KEYS */;
-INSERT INTO `seq` VALUES (1036);
+INSERT INTO `seq` VALUES (1042);
 /*!40000 ALTER TABLE `seq` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -406,7 +406,7 @@ CREATE TABLE `wallet` (
 
 LOCK TABLES `wallet` WRITE;
 /*!40000 ALTER TABLE `wallet` DISABLE KEYS */;
-INSERT INTO `wallet` VALUES (1,45065),(2,300);
+INSERT INTO `wallet` VALUES (1,45655),(2,300);
 /*!40000 ALTER TABLE `wallet` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -419,4 +419,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-11  0:50:50
+-- Dump completed on 2021-01-11 13:09:00

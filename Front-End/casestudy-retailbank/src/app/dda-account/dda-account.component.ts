@@ -42,7 +42,7 @@ export class DdaAccountComponent implements OnInit {
   
     onViewMoreTransactions(){
   
-      this._router.navigate(["transaction"]);
+      this._router.navigate(["transactions/"+this.userId]);
   
     }
     onViewMore(){

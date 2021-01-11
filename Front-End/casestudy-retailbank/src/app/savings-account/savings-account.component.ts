@@ -57,7 +57,7 @@ export class SavingsAccountComponent implements OnInit {
   
       onViewMoreTransactions(){
   
-        this._router.navigate(["transaction/"+this.userId]);
+        this._router.navigate(["transactions/"+this.userId]);
     
       }
 

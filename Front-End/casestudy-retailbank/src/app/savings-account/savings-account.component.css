@@ -256,7 +256,7 @@
   
   }
   .button2{
-    top :90%;
+    top :89%;
     position: absolute;
   left: 42%;
   }
@@ -281,7 +281,7 @@
     padding: 7% 15%;
     text-align: center;
   }
-  /*
+  
   .row py-4 d-flex align-items-center{
     padding : 10%;
   }
@@ -304,7 +304,7 @@
   }
   .ins-ic{
     padding-right: 2%;
-  }*/
+  }
 
 
 

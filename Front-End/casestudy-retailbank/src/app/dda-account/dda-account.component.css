@@ -249,9 +249,9 @@ left: 30%;
 
 }
 .button2{
-  top :90%;
+  top :89%;
     position: absolute;
-    padding-right: 5rem;
+    padding-left: 3rem;
   left: 39%;
   width: 20%;
 }
@@ -277,7 +277,7 @@ left: 58.8%;
     padding: 7% 15%;
     text-align: center;
   }
-  /*
+  
   .row py-4 d-flex align-items-center{
     padding : 10%;
   }
@@ -300,4 +300,4 @@ left: 58.8%;
   }
   .ins-ic{
     padding-right: 2%;
-  }*/
+  }
