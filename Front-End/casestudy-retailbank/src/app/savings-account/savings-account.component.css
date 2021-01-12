@@ -11,6 +11,7 @@
 
 .container{
     display: flex;
+    
   }
   .title{
       padding: 2%;
@@ -41,21 +42,24 @@
     left : 0%;
     height: 150%;
   }
+ 
+
   .button1{
-    top :90%;
+    top :50%;
+    
   position: absolute;
   left: 30%;
   
   }
   .button2{
-    top :90%;
+    top :50%;
     position: absolute;
     padding-right: 5rem;
   left: 39%;
   width: 20%;
   }
   .button3{
-    top :90%;
+    top :50%;
     position: absolute;
   left: 58.8%;
   }
@@ -106,13 +110,12 @@
     padding-left: 5%;
     padding-right: 5%;
     padding-bottom: 5%;
+    padding-top: 15%;
   }
   .container-fluid-2{
     padding : 15% 30%;
   }
-  .container-fluid-data{
-      padding: 15% 10%;
-  }
+  
   .viewport {
    
     position: absolute;
@@ -122,17 +125,18 @@
     top: 110%;
     overflow-x: hidden;
     z-index: 1;
-    background: #4d818c;
-   
+    background-color: #BAF9F1;
     box-shadow: 1px 1px 1px grey;
 
   }
   .viewmoretransactions{
     position: absolute;
-    left:93%;
-    font-size:70%;
-    background: transparent;
-    border: none;
+    left:90.5%;
+    font-size:20px;
+    color: white;
+    background: #15008b;
+    border: 2px #15008b;
+
     top: 165%;
   
   }
@@ -140,7 +144,8 @@
   mat-card {
    
     margin: 1em;
-    background-color: #8dbf41;
+    background-color: #15008b;
+    font-weight: 500;
     color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-style: italic;
@@ -151,8 +156,8 @@
     width: 28%;
     top: 110%;
     left: 70%;
-    font-size: 100%;
-    background: #C4BBB8;
+    font-size: 20px;
+    background: #BAF9F1;
    
     box-shadow: 1px 1px 1px grey;
     z-index: 1;
@@ -185,7 +190,7 @@
     top: 78%;
     left: 57%;
     font-size: 100%;
-    background: #C4BBB8;
+    background:#BAF9F1;
    
     box-shadow: 1px 1px 1px grey;
     z-index: 1;
@@ -203,8 +208,8 @@
   .transactiontable{
    
   
-    font-size: 100%;
-    background: #C4BBB8;
+    font-size: 20px;
+    background: #BAF9F1;
    
     box-shadow: 1px 1px 1px grey;
     z-index: 1;
@@ -245,7 +250,7 @@
    font-family: Arial, Helvetica, sans-serif;
    font-style: normal;
     left: 60%;
-    font-size: 70%;
+    font-size: 14px;
 
   }
 
@@ -264,6 +269,24 @@
     top :90%;
     position: absolute;
   left: 58.8%;
+  }
+
+  .feature-box {
+    position: relative;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: -85px;
+   
+    }
+   
+  .icon {
+    color:#BAF9F1;
+    margin-bottom: 1rem;
+  }
+   
+  .icon:hover {
+    color:#15008b;
   }
 
 /* Footer */
